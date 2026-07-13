@@ -87,22 +87,6 @@ python src/project_dashboard.py
 
 Das Skript wertet Budget, Termine, Risiken und Änderungen aus den CSV-Dateien aus.
 
-## Beispiel für den Lebenslauf
-
-```latex
-\begin{rSubsection}{Technisches Projektmanagement – Umspannwerksprojekt}
-{}{Eigenständiges Simulationsprojekt}{}
-\item Planung der fiktiven Erneuerung eines 380-kV-Leistungsschalterfeldes mit Termin-, Budget-, Ressourcen- und Risikosteuerung
-\item Erstellung von Lastenheft, Projektstrukturplan, RACI-Matrix, Vergabeunterlagen sowie Prüf- und Abnahmekriterien
-\item Entwicklung eines Python-Dashboards zur automatisierten Auswertung von Projektstatus, Budgetabweichungen und Risiken
-\end{rSubsection}
-```
-
-## Ehrliche Einordnung im Bewerbungsgespräch
-
-Geeignete Formulierung:
-
-> „Ich habe mir Grundkenntnisse im technischen Projektmanagement und Vertragswesen durch ein eigenständig aufgebautes Simulationsprojekt erarbeitet. Dabei habe ich einen vollständigen Projektablauf von der Anforderungsdefinition über Vergabe, Termin- und Risikoplanung bis zur Abnahme modelliert. Mir ist bewusst, dass dies reale Projekterfahrung nicht ersetzt; es zeigt jedoch, dass ich die Methoden strukturiert anwenden und mich schnell in reale Prozesse einarbeiten kann.“
 
 ## Lizenz
 
