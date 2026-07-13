@@ -16,7 +16,7 @@ In einem fiktiven Umspannwerk soll ein alter 380-kV-Leistungsschalter einschlie�
 - Montage-, Prüf- und Abnahmeplanung,
 - regelmäßiges Projektstatusreporting.
 
-Das Projekt ist auf eine Einstiegsposition im technischen Projektmanagement der Energieversorgung ausgerichtet.
+Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des technischen Projektmanagements im Umfeld der Energieversorgung.
 
 ## Demonstrierte Kompetenzen
 
