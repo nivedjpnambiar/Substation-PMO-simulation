@@ -1,0 +1,9 @@
+﻿ID;Risiko;Wahrscheinlichkeit;Auswirkung;Risikowert;Klasse;Massnahme;Eigentuemer;Faellig;Status
+R-01;Lieferverzug Leistungsschalter;4;5;20;Hoch;Verbindlicher Fertigungsplan und Fortschrittsreviews;Projektleitung;2027-06-15;Offen
+R-02;Schnittstellen passen nicht zur Bestandsanlage;4;4;16;Hoch;3D-Aufmass und Design Review;Fachprojektleitung;2027-04-15;Reduziert
+R-03;Abschaltfenster wird verschoben;3;5;15;Hoch;Alternativtermine mit Betrieb abstimmen;Betrieb;2027-06-30;Offen
+R-04;Verdeckte Fundamentschäden;3;4;12;Mittel;Voruntersuchung und Reparaturkonzept;Bautechnik;2027-07-15;Offen
+R-05;Unvollständige Abschlussdokumentation;4;3;12;Mittel;Dokumentenplan und Rückhaltebetrag;Projektleitung;2027-08-01;Offen
+R-06;Sicherheitsverstoß auf Baustelle;3;5;15;Hoch;Unterweisung, Kontrollen und Stop-Work-Regel;Arbeitssicherheit;2027-08-15;Offen
+R-07;Kran oder Transportmittel nicht verfügbar;2;4;8;Mittel;Frühe Reservierung und Ersatzanbieter;Auftragnehmer;2027-07-01;Offen
+R-08;FAT zeigt kritische Funktionsabweichung;3;4;12;Mittel;Vorabtest und Prüflistenreview;Fachprojektleitung;2027-06-20;Offen

@@ -1,0 +1,9 @@
+﻿Kostenblock;Plan_EUR;Beauftragt_EUR;Ist_EUR;Prognose_EUR;Verantwortlich
+Engineering;160000;155000;151000;158000;Fachprojektleitung
+Leistungsschalter und Antrieb;670000;665000;465500;665000;Einkauf
+Sekundärtechnik und Schnittstellen;120000;118000;71000;121000;Fachprojektleitung
+Transport und Logistik;60000;57000;10000;59000;Projektleitung
+Demontage und Montage;210000;205000;25000;212000;Projektleitung
+Prüfungen und Inbetriebnahme;80000;76000;7000;79000;Fachprojektleitung
+Dokumentation und Schulung;30000;28000;4000;30000;Projektleitung
+Reserve;120000;0;0;114000;Auftraggeber

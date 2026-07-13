@@ -1,0 +1,42 @@
+PROJEKT-DASHBOARD: 380-kV-LEISTUNGSSCHALTERFELD
+Datenstand: 2026-07-13
+
+========================================================================
+BUDGETSTATUS
+========================================================================
+Plan:        1.450.000 EUR
+Beauftragt: 1.304.000 EUR
+Ist:         733.500 EUR
+Prognose:    1.438.000 EUR
+Abweichung:  -12.000 EUR (-0.83 %)
+Ampel:       GRÜN
+
+========================================================================
+TERMINSTATUS
+========================================================================
+Mittlerer Arbeitspaket-Fortschritt: 64.0 %
+Kritische gefährdete Vorgänge:     1
+ - T-09: Factory Acceptance Test (Gefährdet)
+
+========================================================================
+TOP-RISIKEN
+========================================================================
+R-01  | Wert 20 | Hoch   | Lieferverzug Leistungsschalter | Owner: Projektleitung
+R-02  | Wert 16 | Hoch   | Schnittstellen passen nicht zur Bestandsanlage | Owner: Fachprojektleitung
+R-03  | Wert 15 | Hoch   | Abschaltfenster wird verschoben | Owner: Betrieb
+R-06  | Wert 15 | Hoch   | Sicherheitsverstoß auf Baustelle | Owner: Arbeitssicherheit
+R-04  | Wert 12 | Mittel | Verdeckte Fundamentschäden | Owner: Bautechnik
+
+========================================================================
+CHANGE MANAGEMENT
+========================================================================
+Offene Changes:                   1
+Genehmigte Kostenwirkung netto:  4.500 EUR
+ - CR-002: Anpassung Fundamentadapter | 18.500 EUR | 3 Tage
+
+========================================================================
+GEWICHTETE ANGEBOTSBEWERTUNG
+========================================================================
+1. Bieter A: 4.12 von 5.00 Punkten
+2. Bieter B: 3.97 von 5.00 Punkten
+3. Bieter C: 3.95 von 5.00 Punkten
