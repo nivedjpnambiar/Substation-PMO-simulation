@@ -81,6 +81,8 @@ Das Projekt ist auf eine Einstiegsposition im technischen Projektmanagement der 
 
 Python 3.10 oder neuer genügt; externe Pakete sind nicht erforderlich.
 
+Alternative kann man den Ergebnisse in DASHBOARD_EXAMPLE.txt angucken
+
 ```bash
 python src/project_dashboard.py
 ```
