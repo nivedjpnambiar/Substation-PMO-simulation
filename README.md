@@ -81,7 +81,7 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 
 Python 3.10 oder neuer genügt; externe Pakete sind nicht erforderlich.
 
-Alternative kann man den Ergebnisse in DASHBOARD_EXAMPLE.txt angucken
+Alternativ kann die [Beispielausgabe des Dashboards](DASHBOARD_EXAMPLE.txt) direkt angesehen werden.
 
 ```bash
 python src/project_dashboard.py
