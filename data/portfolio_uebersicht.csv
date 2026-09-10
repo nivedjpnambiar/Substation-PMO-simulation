@@ -1,0 +1,6 @@
+projekt_id,name,kategorie,strategischer_nutzen,risiko,dringlichkeit,ressourcenbedarf_fte,budget_eur,ist_eur,fortschritt_prozent,status,verantwortlich
+P1,380-kV-Leistungsschalterfeld UW Mitte,Anlagenerneuerung,4,4,4,3.5,1450000,733500,64,Gruen,Projektleitung Technik
+P2,Einheitliches PM-Reporting fuer interne LGT-Projekte,Governance & PME,5,2,5,1.5,180000,40000,20,Gruen,PMO
+P3,Standardisierung Inbetriebnahme-Checklisten Gasturbinen-Service,Qualitaet & Prozess,3,2,3,1.0,95000,60000,55,Gelb,Fachbereich Service
+P4,Digitalisierung Ersatzteillager-Verwaltung,Digitalisierung,4,3,3,2.0,310000,55000,15,Gruen,IT/Digitalisierung
+P5,Automatisierung Angebotspruefung Instandhaltungsauftraege,Automatisierung,3,3,2,1.2,120000,95000,70,Rot,Einkauf

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Demo PMO Dashboard von Nived — Cockpit</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root{
+    --ink:#521074;
+    --brand:#9042D8;
+    --brand-deep:#6B2FA8;
+    --lavender:#CBA5FB;
+    --brand-green:#00B255;
+    --bg:#EEF3F2;
+    --surface:#FFFFFF;
+    --text:#16211F;
+    --text-muted:#5C6E6B;
+    --line:#D8E2E0;
+    --green:#3F8F5F;
+    --green-tint:#E4F2E9;
+    --amber:#B5822B;
+    --amber-tint:#FBF1DD;
+    --red:#B5453B;
+    --red-tint:#FAE7E5;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    font-size:15px;
+    line-height:1.5;
+  }
+  .num{font-family:'IBM Plex Mono','SFMono-Regular',Consolas,monospace; font-variant-numeric:tabular-nums;}
+
+  .shell{display:flex; min-height:100vh;}
+
+  .sidebar{
+    width:252px; flex:none; position:relative;
+    background:var(--ink);
+    color:#E9D9F8;
+    display:flex; flex-direction:column;
+    padding:28px 20px 28px 20px;
+  }
+  .brand-stripe{
+    position:absolute; right:0; top:0; bottom:0; width:6px;
+    background:linear-gradient(180deg, #521074 0%, #9042D8 35%, #CBA5FB 65%, #00B255 100%);
+  }
+  .brand{margin-bottom:36px;}
+  .brand-name{font-weight:700; font-size:17px; color:#fff; letter-spacing:.2px;}
+  .brand-sub{font-size:12.5px; color:#C6A3EC; margin-top:4px;}
+
+  .nav{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px;}
+  .nav button{
+    all:unset; cursor:pointer; width:100%;
+    display:block; padding:10px 12px; border-radius:6px;
+    font-size:14px; color:#D6BEF2;
+    border-left:2px solid transparent;
+  }
+  .nav button:hover{background:rgba(255,255,255,.08); color:#fff;}
+  .nav button.active{background:rgba(144,66,216,.32); color:#fff; border-left:2px solid var(--lavender);}
+
+  .sidebar-footer{
+    margin-top:auto; padding-top:20px; border-top:1px solid rgba(255,255,255,.14);
+    font-size:11.5px; color:#B896DE; line-height:1.6;
+  }
+
+  main{flex:1; padding:36px 42px; max-width:1180px;}
+  .panel{display:none;}
+  .panel.active{display:block;}
+
+  h1{font-size:22px; margin:0 0 4px; font-weight:600;}
+  .lede{color:var(--text-muted); margin:0 0 28px; font-size:14px;}
+
+  .stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:28px;}
+  .stat-card{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:18px;}
+  .stat-card .label{font-size:12.5px; color:var(--text-muted);}
+  .stat-card .value{font-size:26px; font-weight:600; margin-top:6px;}
+
+  table{width:100%; border-collapse:collapse; font-size:13.5px;}
+  th{text-align:left; font-weight:600; color:var(--text-muted); font-size:12px; padding:8px 10px; border-bottom:1px solid var(--line);}
+  td{padding:10px 10px; border-bottom:1px solid var(--line); vertical-align:middle;}
+  tr:last-child td{border-bottom:none;}
+
+  .pill{display:inline-flex; align-items:center; gap:6px; padding:3px 9px; border-radius:20px; font-size:12px; font-weight:500;}
+  .pill.gruen{background:var(--green-tint); color:var(--green);}
+  .pill.gelb{background:var(--amber-tint); color:var(--amber);}
+  .pill.rot{background:var(--red-tint); color:var(--red);}
+  .dot{width:6px; height:6px; border-radius:50%; background:currentColor; display:inline-block;}
+
+  .bar-bg{width:80px; height:6px; background:var(--line); border-radius:3px; overflow:hidden; display:inline-block; vertical-align:middle;}
+  .bar-fill{height:100%; background:var(--brand);}
+
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:22px; margin-bottom:20px;}
+  .card h2{font-size:15px; margin:0 0 4px;}
+  .card .sub{font-size:12.5px; color:var(--text-muted); margin-bottom:16px;}
+
+  .matrix-wrap{display:flex; gap:28px; flex-wrap:wrap; align-items:flex-start;}
+  .matrix-legend{flex:1; min-width:220px;}
+  .legend-row{display:flex; justify-content:space-between; padding:7px 0; border-bottom:1px solid var(--line); font-size:13px;}
+  .legend-row:last-child{border-bottom:none;}
+  .legend-score{font-weight:600; color:var(--brand-deep);}
+
+  .catbar-row{display:flex; align-items:center; padding:8px 0;}
+  .catbar-label{width:230px; flex:none; font-size:13.5px;}
+  .catbar-track{flex:1; height:10px; background:var(--line); border-radius:5px; overflow:hidden; margin:0 14px;}
+  .catbar-fill{height:100%; background:var(--brand);}
+  .catbar-value{width:120px; flex:none; text-align:right; font-size:13px;}
+
+  .gantt-wrap{position:relative;}
+  .gantt-label-cell{position:absolute; font-size:12.5px; line-height:1.3; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .gantt-bar{position:absolute; border-radius:4px; display:flex; align-items:center; justify-content:flex-end; padding:0 6px;}
+  .gantt-bar span{font-size:11px; color:#fff; font-family:'IBM Plex Mono',monospace;}
+  .gantt-grid-line{position:absolute; width:1px; background:var(--line);}
+  .gantt-today-line{position:absolute; width:2px; background:var(--brand);}
+  .gantt-axis-label{position:absolute; font-size:11px; color:var(--text-muted); white-space:nowrap;}
+
+  .decision{border:1px solid var(--line); border-radius:6px; padding:18px 20px; margin-bottom:14px; background:var(--surface);}
+  .decision-head{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:8px;}
+  .decision-title{font-weight:600; font-size:14.5px;}
+  .decision-meta{font-size:12px; color:var(--text-muted); margin-bottom:10px;}
+  .decision ul{margin:6px 0 10px; padding-left:18px; font-size:13.5px;}
+  .decision .impact{font-size:13px; color:var(--text-muted);}
+
+  @media (max-width:900px){
+    .shell{flex-direction:column;}
+    .sidebar{width:100%; flex-direction:row; align-items:center; padding:16px 20px;}
+    .brand{margin-bottom:0; margin-right:24px;}
+    .nav{flex-direction:row; overflow-x:auto;}
+    .sidebar-footer{display:none;}
+    main{padding:24px;}
+    .stat-row{grid-template-columns:repeat(2,1fr);}
+    .matrix-wrap{flex-direction:column;}
+    .gantt-wrap{overflow-x:auto;}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand-stripe"></div>
+    <div class="brand">
+      <div class="brand-name">Demo PMO Dashboard von Nived</div>
+      <div class="brand-sub">Internal Project Management Office</div>
+    </div>
+    <ul class="nav">
+      <li><button class="active" data-tab="uebersicht">Portfolio-Übersicht</button></li>
+      <li><button data-tab="priorisierung">Priorisierung</button></li>
+      <li><button data-tab="zeitplan">Zeitplan</button></li>
+      <li><button data-tab="ressourcen">Ressourcen</button></li>
+      <li><button data-tab="risiken">Risiken</button></li>
+      <li><button data-tab="entscheidungen">Entscheidungen</button></li>
+    </ul>
+    <div class="sidebar-footer"></div>
+  </aside>
+
+  <main>
+    <section id="uebersicht" class="panel active">
+      <h1>Portfolio-Übersicht</h1>
+      <p class="lede">Status aller internen Projekte.</p>
+      <div class="stat-row" id="statRow"></div>
+      <div class="card">
+        <h2>Budget nach Kategorie</h2>
+        <div class="sub">Verteilung des Portfolio-Budgets über strategische Kategorien</div>
+        <div id="categoryChart"></div>
+      </div>
+      <div class="card">
+        <h2>Projekte</h2>
+        <div class="sub">Sortiert nach Prioritäts-Score (Skala 1–5): Nutzen × 0,4 + Dringlichkeit × 0,3 + (6 − Risiko) × 0,3</div>
+        <table id="projectTable"></table>
+      </div>
+    </section>
+
+    <section id="priorisierung" class="panel">
+      <h1>Priorisierungsmatrix</h1>
+      <p class="lede">Strategischer Nutzen vs. Risiko — Blasengröße entspricht dem Budget.</p>
+      <div class="card">
+        <div class="sub">Score je Projekt (Skala 1–5): Nutzen × 0,4 + Dringlichkeit × 0,3 + (6 − Risiko) × 0,3</div>
+        <div class="matrix-wrap">
+          <div id="matrixChart"></div>
+          <div class="matrix-legend" id="matrixLegend"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="zeitplan" class="panel">
+      <h1>Zeitplan</h1>
+      <p class="lede">Laufzeiten aller Portfolio-Projekte</p>
+      <div class="card">
+        <div id="ganttChart"></div>
+      </div>
+    </section>
+
+    <section id="ressourcen" class="panel">
+      <h1>Ressourcenkonflikte</h1>
+      <p class="lede">Kapazitätsbedarf vs. Verfügbarkeit je Rolle, Oktober 2026.</p>
+      <div class="card">
+        <div class="sub">FTE = Vollzeitäquivalent (Full-Time Equivalent): 1,0 FTE entspricht einer vollzeitbeschäftigten Person. „Konflikt" heißt: Bedarf übersteigt die verfügbare Kapazität.</div>
+        <table id="resourceTable"></table>
+      </div>
+    </section>
+
+    <section id="risiken" class="panel">
+      <h1>Risiken</h1>
+      <p class="lede">Aggregiertes Risikoregister über alle Portfolio-Projekte.</p>
+      <div class="card">
+        <div class="sub">Wert = Eintrittswahrscheinlichkeit × Auswirkung (Skala 1–25). Einstufung: Hoch ab 15 · Mittel 9–14 · Niedrig unter 9.</div>
+        <table id="riskTable"></table>
+      </div>
+    </section>
+
+    <section id="entscheidungen" class="panel">
+      <h1>Entscheidungsvorlagen</h1>
+      <p class="lede">Vorbereitet für den nächsten Portfolio-Steering-Board-Termin.</p>
+      <div id="decisions"></div>
+    </section>
+  </main>
+</div>
+
+<script>
+const projects = [
+  {id:'P1', name:'380-kV-Leistungsschalterfeld UW Mitte', kategorie:'Anlagenerneuerung', nutzen:4, risiko:4, dringlichkeit:4, budget:1450000, ist:733500, fortschritt:64, status:'gruen', start:'2026-10-01', end:'2027-09-30'},
+  {id:'P2', name:'Einheitliches PM-Reporting für interne Projekte', kategorie:'Governance & PME', nutzen:5, risiko:2, dringlichkeit:5, budget:180000, ist:40000, fortschritt:20, status:'gruen', start:'2026-06-01', end:'2027-01-31'},
+  {id:'P3', name:'Standardisierung Inbetriebnahme-Checklisten', kategorie:'Qualität & Prozess', nutzen:3, risiko:2, dringlichkeit:3, budget:95000, ist:60000, fortschritt:55, status:'gelb', start:'2026-05-01', end:'2026-11-30'},
+  {id:'P4', name:'Digitalisierung Ersatzteillager-Verwaltung', kategorie:'Digitalisierung', nutzen:4, risiko:3, dringlichkeit:3, budget:310000, ist:55000, fortschritt:15, status:'gruen', start:'2026-08-01', end:'2027-04-30'},
+  {id:'P5', name:'Automatisierung Angebotsprüfung Instandhaltung', kategorie:'Automatisierung', nutzen:3, risiko:3, dringlichkeit:2, budget:120000, ist:95000, fortschritt:70, status:'rot', start:'2026-04-01', end:'2026-10-31'},
+];
+
+const resources = [
+  {rolle:'Fachprojektleitung Technik', monat:'Okt 2026', bedarf:2.3, verfuegbar:2.0, projekte:'P1, P3, P5'},
+  {rolle:'Bauleitung / Montage', monat:'Okt 2026', bedarf:1.4, verfuegbar:1.5, projekte:'P1'},
+  {rolle:'Einkauf & Vergabe', monat:'Okt 2026', bedarf:1.6, verfuegbar:1.0, projekte:'P1, P4'},
+  {rolle:'IT / Digitalisierung', monat:'Okt 2026', bedarf:1.8, verfuegbar:2.0, projekte:'P2, P4, P5'},
+];
+
+const risks = [
+  {id:'R-01', projekt:'P1', beschreibung:'Lieferverzug Leistungsschalter', wert:20, owner:'Projektleitung'},
+  {id:'R-02', projekt:'P1', beschreibung:'Schnittstellen passen nicht zur Bestandsanlage', wert:16, owner:'Fachprojektleitung'},
+  {id:'R-03', projekt:'P1', beschreibung:'Abschaltfenster wird verschoben', wert:15, owner:'Betrieb'},
+  {id:'R-06', projekt:'P1', beschreibung:'Sicherheitsverstoß auf Baustelle', wert:15, owner:'Arbeitssicherheit'},
+  {id:'R-04', projekt:'P1', beschreibung:'Verdeckte Fundamentschäden', wert:12, owner:'Bautechnik'},
+  {id:'R-05', projekt:'P1', beschreibung:'Unvollständige Abschlussdokumentation', wert:12, owner:'Projektleitung'},
+  {id:'R-08', projekt:'P1', beschreibung:'FAT zeigt kritische Funktionsabweichung', wert:12, owner:'Fachprojektleitung'},
+  {id:'R-07', projekt:'P1', beschreibung:'Kran oder Transportmittel nicht verfügbar', wert:8, owner:'Auftragnehmer'},
+  {id:'R-09', projekt:'P2', beschreibung:'Geringe Akzeptanz des neuen Reporting-Tools bei Projektleitern', wert:12, owner:'PMO'},
+  {id:'R-11', projekt:'P5', beschreibung:'Verzögerte Freigaben durch Einkauf verlangsamen Rollout', wert:10, owner:'Einkauf'},
+  {id:'R-10', projekt:'P4', beschreibung:'Datenqualität im bestehenden Lagerbestand unzureichend', wert:9, owner:'IT/Digitalisierung'},
+];
+
+const changes = [
+  {id:'CR-001', projekt:'P1', status:'geschlossen'},
+  {id:'CR-002', projekt:'P1', status:'offen'},
+  {id:'CR-003', projekt:'P5', status:'geschlossen'},
+  {id:'CR-004', projekt:'P4', status:'offen'},
+  {id:'CR-005', projekt:'P3', status:'offen'},
+];
+
+function eur(n){ return n.toLocaleString('de-DE') + ' €'; }
+function statusLabel(s){ return {gruen:'Grün', gelb:'Gelb', rot:'Rot'}[s]; }
+function priority(p){
+  const score = p.nutzen*0.4 + p.dringlichkeit*0.3 + (6-p.risiko)*0.3;
+  return Math.round(score*10)/10;
+}
+function riskLevel(w){
+  if(w>=15) return ['Hoch','rot'];
+  if(w>=9) return ['Mittel','gelb'];
+  return ['Niedrig','gruen'];
+}
+
+function renderStats(){
+  const total = projects.reduce((s,p)=>s+p.budget,0);
+  const atRisk = projects.filter(p=>p.status!=='gruen').length;
+  const conflicts = resources.filter(r=>r.bedarf>r.verfuegbar).length;
+  const avgProgress = Math.round(projects.reduce((s,p)=>s+p.fortschritt,0)/projects.length);
+  const openChanges = changes.filter(c=>c.status==='offen').length;
+  const stats = [
+    ['Aktive Projekte', projects.length],
+    ['Portfolio-Budget', eur(total)],
+    ['Ø Fortschritt', avgProgress+'%'],
+    ['Projekte in Gelb/Rot', atRisk],
+    ['Ressourcenkonflikte', conflicts],
+    ['Offene Changes', openChanges],
+  ];
+  document.getElementById('statRow').innerHTML = stats.map(([l,v])=>
+    `<div class="stat-card"><div class="label">${l}</div><div class="value num">${v}</div></div>`
+  ).join('');
+}
+
+function renderCategoryChart(){
+  const byCat = {};
+  projects.forEach(p=>{ byCat[p.kategorie] = (byCat[p.kategorie]||0) + p.budget; });
+  const entries = Object.entries(byCat).sort((a,b)=>b[1]-a[1]);
+  const max = Math.max(...entries.map(e=>e[1]));
+  document.getElementById('categoryChart').innerHTML = entries.map(([cat,val])=>`
+    <div class="catbar-row">
+      <div class="catbar-label">${cat}</div>
+      <div class="catbar-track"><div class="catbar-fill" style="width:${val/max*100}%"></div></div>
+      <div class="catbar-value num">${eur(val)}</div>
+    </div>`).join('');
+}
+
+function renderProjects(){
+  const sorted = [...projects].sort((a,b)=>priority(b)-priority(a));
+  const rows = sorted.map(p=>`
+    <tr>
+      <td><strong>${p.id}</strong> ${p.name}<br><span style="color:var(--text-muted); font-size:12px;">${p.kategorie}</span></td>
+      <td><span class="pill ${p.status}"><span class="dot"></span>${statusLabel(p.status)}</span></td>
+      <td><span class="bar-bg"><span class="bar-fill" style="width:${p.fortschritt}%"></span></span> <span class="num" style="font-size:12px;">${p.fortschritt}%</span></td>
+      <td class="num">${eur(p.ist)} / ${eur(p.budget)}</td>
+      <td class="num" style="color:var(--brand-deep); font-weight:600;">${priority(p)}</td>
+    </tr>`).join('');
+  document.getElementById('projectTable').innerHTML = `
+    <thead><tr><th>Projekt</th><th>Status</th><th>Fortschritt</th><th>Budget (Ist/Plan)</th><th>Priorität</th></tr></thead>
+    <tbody>${rows}</tbody>`;
+}
+
+function renderMatrix(){
+  const W=560,H=380, pad={l:50,r:20,t:20,b:50};
+  const pw=W-pad.l-pad.r, ph=H-pad.t-pad.b;
+  const x = v => pad.l + (v-1)/4*pw;
+  const y = v => pad.t + ph - (v-1)/4*ph;
+  const maxBudget = Math.max(...projects.map(p=>p.budget));
+  const r = b => 12 + Math.sqrt(b/maxBudget)*26;
+  const colors = {gruen:'#3F8F5F', gelb:'#B5822B', rot:'#B5453B'};
+
+  let svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">`;
+  svg += `<line x1="${x(3)}" y1="${pad.t}" x2="${x(3)}" y2="${pad.t+ph}" stroke="#D8E2E0" />`;
+  svg += `<line x1="${pad.l}" y1="${y(3)}" x2="${pad.l+pw}" y2="${y(3)}" stroke="#D8E2E0" />`;
+  svg += `<line x1="${pad.l}" y1="${pad.t+ph}" x2="${pad.l+pw}" y2="${pad.t+ph}" stroke="#5C6E6B" />`;
+  svg += `<line x1="${pad.l}" y1="${pad.t}" x2="${pad.l}" y2="${pad.t+ph}" stroke="#5C6E6B" />`;
+  svg += `<text x="${pad.l+pw/2}" y="${H-14}" text-anchor="middle" font-size="12" fill="#5C6E6B" font-family="IBM Plex Sans">Strategischer Nutzen →</text>`;
+  svg += `<text x="16" y="${pad.t+ph/2}" text-anchor="middle" font-size="12" fill="#5C6E6B" font-family="IBM Plex Sans" transform="rotate(-90 16 ${pad.t+ph/2})">Risiko →</text>`;
+  svg += `<text x="${pad.l+pw-6}" y="${pad.t+ph-8}" text-anchor="end" font-size="11" fill="#9AAAA7" font-family="IBM Plex Sans">Quick Wins</text>`;
+  svg += `<text x="${pad.l+pw-6}" y="${pad.t+14}" text-anchor="end" font-size="11" fill="#9AAAA7" font-family="IBM Plex Sans">Strategische Wetten</text>`;
+  svg += `<text x="${pad.l+6}" y="${pad.t+14}" text-anchor="start" font-size="11" fill="#9AAAA7" font-family="IBM Plex Sans">Hinterfragen</text>`;
+  svg += `<text x="${pad.l+6}" y="${pad.t+ph-8}" text-anchor="start" font-size="11" fill="#9AAAA7" font-family="IBM Plex Sans">Nice-to-have</text>`;
+
+  projects.forEach(p=>{
+    svg += `<circle cx="${x(p.nutzen)}" cy="${y(p.risiko)}" r="${r(p.budget)}" fill="${colors[p.status]}" fill-opacity="0.75" stroke="${colors[p.status]}"><title>${p.name} — Nutzen ${p.nutzen}, Risiko ${p.risiko}, Budget ${eur(p.budget)}</title></circle>`;
+    svg += `<text x="${x(p.nutzen)}" y="${y(p.risiko)+4}" text-anchor="middle" font-size="11" fill="#fff" font-family="IBM Plex Mono" font-weight="600">${p.id}</text>`;
+  });
+  svg += `</svg>`;
+  document.getElementById('matrixChart').innerHTML = svg;
+
+  const sorted = [...projects].sort((a,b)=>priority(b)-priority(a));
+  document.getElementById('matrixLegend').innerHTML = '<div class="sub">Rangfolge</div>' + sorted.map(p=>
+    `<div class="legend-row"><span>${p.id} — ${p.name}</span><span class="legend-score num">${priority(p)}</span></div>`
+  ).join('');
+}
+
+function renderGantt(){
+  const minDate = new Date(Math.min(...projects.map(p=>new Date(p.start))));
+  const maxDate = new Date(Math.max(...projects.map(p=>new Date(p.end))));
+  const span = maxDate-minDate;
+  const labelW=240, chartW=600, rowH=38, headerH=26;
+  const H = headerH + projects.length*rowH + 22;
+  const pct = d => (new Date(d)-minDate)/span;
+  const colors = {gruen:'#3F8F5F', gelb:'#B5822B', rot:'#B5453B'};
+
+  const quarters = ['2026-04-01','2026-07-01','2026-10-01','2027-01-01','2027-04-01','2027-07-01'];
+  const qLabels = ['Q2 26','Q3 26','Q4 26','Q1 27','Q2 27','Q3 27'];
+  const lineBottom = H - 16;
+
+  let html = `<div class="gantt-wrap" style="height:${H}px; min-width:${labelW+chartW+20}px;">`;
+
+  quarters.forEach((q,i)=>{
+    const qd = new Date(q);
+    if(qd < minDate || qd > maxDate) return;
+    const left = labelW + pct(q)*chartW;
+    html += `<div class="gantt-grid-line" style="left:${left}px; top:${headerH}px; height:${lineBottom-headerH}px;"></div>`;
+    html += `<div class="gantt-axis-label" style="left:${left+4}px; top:4px;">${qLabels[i]}</div>`;
+  });
+
+  const today = '2026-09-13';
+  const todayLeft = labelW + pct(today)*chartW;
+  html += `<div class="gantt-today-line" style="left:${todayLeft}px; top:${headerH}px; height:${lineBottom-headerH}px;"></div>`;
+  html += `<div class="gantt-axis-label" style="left:${todayLeft+4}px; top:${lineBottom+2}px; color:var(--brand-deep); font-weight:600;">Heute</div>`;
+
+  projects.forEach((p,i)=>{
+    const top = headerH + i*rowH;
+    html += `<div class="gantt-label-cell" style="left:0; top:${top+(rowH/2-9)}px; width:${labelW-14}px;" title="${p.name} (${p.kategorie})"><strong>${p.id}</strong> ${p.name}</div>`;
+    const barLeft = labelW + pct(p.start)*chartW;
+    const barWidth = (pct(p.end)-pct(p.start))*chartW;
+    html += `<div class="gantt-bar" style="left:${barLeft}px; top:${top+7}px; width:${barWidth}px; height:${rowH-16}px; background:${colors[p.status]};" title="${p.name}: ${p.start} bis ${p.end}"><span>${p.fortschritt}%</span></div>`;
+  });
+
+  html += `</div>`;
+  document.getElementById('ganttChart').innerHTML = html;
+}
+
+function renderResources(){
+  const rows = resources.map(r=>{
+    const conflict = r.bedarf > r.verfuegbar;
+    return `<tr>
+      <td>${r.rolle}</td>
+      <td>${r.monat}</td>
+      <td class="num">${r.bedarf.toFixed(1)} FTE</td>
+      <td class="num">${r.verfuegbar.toFixed(1)} FTE</td>
+      <td><span class="pill ${conflict?'rot':'gruen'}"><span class="dot"></span>${conflict?'Konflikt':'OK'}</span></td>
+      <td style="font-size:12.5px; color:var(--text-muted);">${r.projekte}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('resourceTable').innerHTML = `
+    <thead><tr><th>Rolle</th><th>Monat</th><th>Bedarf</th><th>Verfügbar</th><th>Status</th><th>Projekte</th></tr></thead>
+    <tbody>${rows}</tbody>`;
+}
+
+function renderRisks(){
+  const sorted = [...risks].sort((a,b)=>b.wert-a.wert);
+  const rows = sorted.map(r=>{
+    const proj = projects.find(p=>p.id===r.projekt);
+    const [label,cls] = riskLevel(r.wert);
+    return `<tr>
+      <td class="num">${r.id}</td>
+      <td>${proj ? proj.id+' — '+proj.name : r.projekt}</td>
+      <td>${r.beschreibung}</td>
+      <td class="num">${r.wert}</td>
+      <td><span class="pill ${cls}"><span class="dot"></span>${label}</span></td>
+      <td>${r.owner}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('riskTable').innerHTML = `
+    <thead><tr><th>ID</th><th>Projekt</th><th>Risiko</th><th>Wert</th><th>Stufe</th><th>Owner</th></tr></thead>
+    <tbody>${rows}</tbody>`;
+}
+
+const decisions = [
+  {
+    title:'CR-002 — Anpassung Fundamentadapter (P1)',
+    meta:'Vorgelegt von: Fachprojektleitung Technik · Betrifft: 380-kV-Leistungsschalterfeld',
+    options:['Change genehmigen (+18.500 €, +3 Tage)', 'Change ablehnen, Redesign durch GU fordern'],
+    empfehlung:'Option 1 — geringe Kosten- und Terminwirkung, verhindert Verzug bei Folgegewerken.',
+    entscheidung:'ausstehend'
+  },
+  {
+    title:'Ressourcenkonflikt Fachprojektleitung Technik, Okt 2026',
+    meta:'Betrifft: P1, P3, P5 · Kapazitätslücke: 0,3 FTE',
+    options:['P3 um 4 Wochen verschieben', 'Externe Unterstützung beauftragen (+25.000 €)', 'Scope von P5 reduzieren'],
+    empfehlung:'Option 1 — P3 hat im Portfolio die geringste Dringlichkeit und keine Abhängigkeiten.',
+    entscheidung:'ausstehend'
+  },
+  {
+    title:'Status Rot: Automatisierung Angebotsprüfung (P5)',
+    meta:'Ursache: Ressourcenengpass Einkauf · Fortschritt 70 % bei 95.000 € Ist-Kosten',
+    options:['Projekt pausieren', 'Zusätzliche Ressourcen aus P4 verschieben', 'Scope auf Kernfunktion reduzieren, Rest in Phase 2'],
+    empfehlung:'Option 3 — sichert den Kernnutzen zum Termin und verschiebt Nice-to-have-Umfang.',
+    entscheidung:'genehmigt'
+  }
+];
+
+function renderDecisions(){
+  const labelMap = {genehmigt:['Genehmigt','gruen'], ausstehend:['Ausstehend','gelb'], abgelehnt:['Abgelehnt','rot']};
+  document.getElementById('decisions').innerHTML = decisions.map(d=>{
+    const [label, cls] = labelMap[d.entscheidung];
+    return `<div class="decision">
+      <div class="decision-head">
+        <div class="decision-title">${d.title}</div>
+        <span class="pill ${cls}"><span class="dot"></span>${label}</span>
+      </div>
+      <div class="decision-meta">${d.meta}</div>
+      <div style="font-size:13px; color:var(--text-muted); margin-bottom:4px;">Optionen:</div>
+      <ul>${d.options.map(o=>`<li>${o}</li>`).join('')}</ul>
+      <div class="impact"><strong>Empfehlung:</strong> ${d.empfehlung}</div>
+    </div>`;
+  }).join('');
+}
+
+document.querySelectorAll('.nav button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+renderStats();
+renderCategoryChart();
+renderProjects();
+renderMatrix();
+renderGantt();
+renderResources();
+renderRisks();
+renderDecisions();
+</script>
+</body>
+</html>
