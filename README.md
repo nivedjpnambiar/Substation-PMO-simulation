@@ -14,7 +14,9 @@ In einem fiktiven Umspannwerk soll ein alter 380-kV-Leistungsschalter einschlie�
 - Angebotsbewertung und Vergabeempfehlung,
 - Änderungsmanagement,
 - Montage-, Prüf- und Abnahmeplanung,
-- regelmäßiges Projektstatusreporting.
+- regelmäßiges Projektstatusreporting,
+- Portfolio-Priorisierung und Programmeinordnung,
+- Projektumfeld-, Stakeholder- und Kommunikationsanalyse.
 
 Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des technischen Projektmanagements im Umfeld der Energieversorgung.
 
@@ -23,12 +25,15 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 - Technisches Projektmanagement
 - Termin-, Kosten- und Ressourcensteuerung
 - Risikomanagement
-- Stakeholder- und Schnittstellenmanagement
+- Stakeholder-, Schnittstellen- und Machtanalyse
+- Persönliche Kommunikation (Kommunikationsmodelle in der Praxis)
+- Projektdesign und Wahl des Vorgehensmodells
 - Grundkenntnisse im technischen Vertragswesen
 - Technische Spezifikation und Angebotsbewertung
 - Qualitäts-, Arbeits- und Anlagensicherheitsplanung
 - Reporting und Change Management
-- Python-basierte Projektauswertung
+- Portfolio- und Programmpriorisierung
+- Python-basierte Projektauswertung und Datenvisualisierung
 
 ## Projektannahmen
 
@@ -48,6 +53,9 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 ```text
 .
 ├── README.md
+├── LICENSE
+├── DASHBOARD_EXAMPLE.txt
+├── portfolio_dashboard.html
 ├── docs/
 │   ├── 01_Projektauftrag.md
 │   ├── 02_Anforderungen_und_Lastenheft.md
@@ -61,14 +69,28 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 │   ├── 10_Change_Management.md
 │   ├── 11_Qualitaet_Pruefung_Abnahme.md
 │   ├── 12_Statusbericht.md
-│   └── 13_Lessons_Learned.md
+│   ├── 13_Lessons_Learned.md
+│   ├── 14_Portfolio_Priorisierung.md
+│   ├── 15_Projektumfeld_und_Stakeholderportfolio.md
+│   ├── 16_Projektdesign_und_Ansatz.md
+│   ├── 17_Kommunikationsmodell.md
+│   └── 18_Kosten_und_Ressourcenkurven.md
+├── assets/
+│   └── diagrams/
+│       ├── projektumfeld.png
+│       ├── stakeholder_portfolio.png
+│       ├── kostenkurve.png
+│       ├── ressourcen_gantt.png
+│       └── make_charts.py
 ├── data/
 │   ├── terminplan.csv
 │   ├── budgetplan.csv
 │   ├── risikoregister.csv
-│   ├── raci_matrix.csv
+│   ├── raci_matrix_p1.xlsx
 │   ├── angebotsbewertung.csv
-│   └── change_log.csv
+│   ├── change_log.csv
+│   ├── portfolio_uebersicht.csv
+│   └── ressourcenkonflikte.csv
 ├── templates/
 │   ├── change_request_template.md
 │   ├── meeting_minutes_template.md
@@ -76,6 +98,29 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 └── src/
     └── project_dashboard.py
 ```
+
+## Inhaltsübersicht `docs/`
+
+| # | Dokument | Inhalt |
+|---|---|---|
+| 01 | Projektauftrag | Ziele, Nicht-Ziele, Erfolgskennzahlen, Projektorganisation |
+| 02 | Anforderungen und Lastenheft | Muss-/Soll-Anforderungen, Liefer- und Leistungsumfang |
+| 03 | Projektstrukturplan | Arbeitspakete je Phase, Definition of Done |
+| 04 | Termin- und Meilensteinplanung | Meilensteine, kritischer Pfad, Gantt |
+| 05 | Budget und Ressourcen | Kostenblöcke, Zahlungsmeilensteine, FTE-Planung |
+| 06 | Risikomanagement | Bewertungsmethode, Top-Risiken, Chancen |
+| 07 | Stakeholder und RACI | Stakeholderanalyse, RACI-Legende, Kommunikationsplan |
+| 08 | Vergabe und Vertragsgrundlagen | Ausschreibungsinhalte, technisches Vertragswesen |
+| 09 | Angebotsbewertung | Bewertungsmodell, Vergabeempfehlung |
+| 10 | Change Management | Ablauf, Kategorien, Beispiel-Change |
+| 11 | Qualität, Prüfung, Abnahme | Prüfplan, Mängelklassen, Abnahmekriterien |
+| 12 | Statusbericht | Beispielhafter Monatsbericht mit Ampelstatus |
+| 13 | Lessons Learned | Erkenntnisse und persönlicher Lerngewinn |
+| 14 | Portfolio-Priorisierung | Einordnung in Portfolio-/Programmkontext |
+| 15 | Projektumfeld und Stakeholderportfolio | Umfelddiagramm, Schnittstellen, Einfluss-/Interesse-Portfolio, Machtpromotoren |
+| 16 | Projektdesign und Ansatz | Erfolgskriterien-Priorisierung, Wahl des Vorgehensmodells, ausgearbeitetes Arbeitspaket |
+| 17 | Kommunikationsmodell | Anwendung des Vier-Seiten-Modells auf ein reales Abstimmungsgespräch |
+| 18 | Kosten- und Ressourcenkurven | Kosten-S-Kurve (Plan/Ist/Prognose), Ressourcen-Gantt mit Engpassressource |
 
 ## Schnellstart
 
@@ -88,6 +133,14 @@ python src/project_dashboard.py
 ```
 
 Das Skript wertet Budget, Termine, Risiken und Änderungen aus den CSV-Dateien aus.
+
+Die Diagramme unter `assets/diagrams/` (Projektumfeld, Stakeholder-Portfolio, Kostenkurve, Ressourcen-Gantt) lassen sich bei Bedarf neu erzeugen:
+
+```bash
+python assets/diagrams/make_charts.py
+```
+
+Das Skript benötigt `matplotlib` (`pip install matplotlib`).
 
 
 ## Lizenz
