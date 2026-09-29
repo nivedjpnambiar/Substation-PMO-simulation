@@ -14,7 +14,7 @@ Der bestehende Leistungsschalter hat das Ende seiner vorgesehenen Nutzungsdauer 
 2. Einhaltung des Projektbudgets von 1.450.000 EUR mit einer zulässigen Prognoseabweichung von maximal fünf Prozent.
 3. Erfüllung der definierten technischen, qualitativen und sicherheitsbezogenen Anforderungen.
 4. Vollständige Übergabe der Prüf-, Revisions- und Bestandsdokumentation.
-5. Sichere Wiederinbetriebnahme bis spätestens 30.09.2027.
+5. Sichere Wiederinbetriebnahme bis spätestens 30.09.2026.
 
 ## 1.4 Nicht-Ziele
 

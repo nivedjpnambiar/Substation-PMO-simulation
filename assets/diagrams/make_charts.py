@@ -1,3 +1,5 @@
+import os
+OUT_DIR = os.path.dirname(os.path.abspath(__file__))
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -73,7 +75,7 @@ for (x, y) in [(2.0,8.2),(2.0,6.8),(8.0,8.2),(8.0,6.8),(8.0,5.4),(2.0,3.2),(2.0,
 
 ax.set_title("Projektumfeld: intern/extern × technisch/sozial", fontsize=12, fontweight="bold", pad=14)
 fig.tight_layout()
-fig.savefig("/tmp/repo/assets/diagrams/projektumfeld.png", dpi=200)
+fig.savefig(os.path.join(OUT_DIR, "projektumfeld.png"), dpi=200)
 plt.close(fig)
 
 print("chart 1 done")
@@ -138,7 +140,7 @@ ax.set_ylabel("Einfluss →", fontsize=11)
 ax.set_xticks([]); ax.set_yticks([])
 ax.set_title("Stakeholder-Portfolio: Einfluss vs. Interesse", fontsize=13, fontweight="bold", pad=14)
 fig.tight_layout()
-fig.savefig("/tmp/repo/assets/diagrams/stakeholder_portfolio.png", dpi=200)
+fig.savefig(os.path.join(OUT_DIR, "stakeholder_portfolio.png"), dpi=200)
 plt.close(fig)
 print("chart 2 done")
 
@@ -146,28 +148,28 @@ print("chart 2 done")
 # 3. Cost curve + cumulative cost curve (S-curve), Plan vs Ist vs Prognose
 # ---------------------------------------------------------------
 plan_points = [
-    (dt.date(2026,10,1), 0),
-    (dt.date(2027,2,28), 145000),      # M3 Vergabe - 10%
-    (dt.date(2027,4,30), 435000),      # M4 Design Review - 30% cum.
-    (dt.date(2027,6,30), 870000),      # M5 FAT bestanden - 60% cum.
-    (dt.date(2027,8,31), 1160000),     # M6 Lieferung - 80% cum.
-    (dt.date(2027,9,20), 1377500),     # M7 Inbetriebnahme - 95% cum.
-    (dt.date(2027,9,30), 1450000),     # M8 Abschluss - 100% cum.
+    (dt.date(2025,10,1), 0),
+    (dt.date(2026,2,28), 145000),      # M3 Vergabe - 10%
+    (dt.date(2026,4,30), 435000),      # M4 Design Review - 30% cum.
+    (dt.date(2026,6,30), 870000),      # M5 FAT bestanden - 60% cum.
+    (dt.date(2026,8,31), 1160000),     # M6 Lieferung - 80% cum.
+    (dt.date(2026,9,20), 1377500),     # M7 Inbetriebnahme - 95% cum.
+    (dt.date(2026,9,30), 1450000),     # M8 Abschluss - 100% cum.
 ]
-ist_point = (dt.date(2027,6,30), 733500)   # Summe Ist_EUR aus budgetplan.csv, Berichtsstand Statusbericht 06/2027
-prognose_point = (dt.date(2027,9,30), 1438000)  # Summe Prognose_EUR aus budgetplan.csv
+ist_point = (dt.date(2026,6,30), 733500)   # Summe Ist_EUR aus budgetplan.csv, Berichtsstand Statusbericht 06/2026
+prognose_point = (dt.date(2026,9,30), 1438000)  # Summe Prognose_EUR aus budgetplan.csv
 
 fig, ax = plt.subplots(figsize=(9.5, 5.5))
 px = [p[0] for p in plan_points]
 py = [p[1] for p in plan_points]
 ax.plot(px, py, color=BLUE, marker="o", lw=2, label="Plan (kumuliert, aus Zahlungsmeilensteinen)")
-ax.plot([dt.date(2026,10,1), ist_point[0]], [0, ist_point[1]], color=GREEN, lw=2, marker="o", label="Ist (kumuliert, Stand 06/2027)")
+ax.plot([dt.date(2025,10,1), ist_point[0]], [0, ist_point[1]], color=GREEN, lw=2, marker="o", label="Ist (kumuliert, Stand 06/2026)")
 ax.scatter([prognose_point[0]], [prognose_point[1]], color=ORANGE, s=70, zorder=5, label="Prognose Gesamtkosten (Projektende)")
 ax.axhline(1450000, color=RED, lw=1, ls="--", alpha=0.6)
-ax.text(dt.date(2027,1,20), 1470000, "Genehmigtes Budget: 1.450.000 EUR", color=RED, fontsize=8, ha="left")
+ax.text(dt.date(2026,1,20), 1470000, "Genehmigtes Budget: 1.450.000 EUR", color=RED, fontsize=8, ha="left")
 
-ax.axvline(dt.date(2027,6,30), color="#aaaaaa", lw=1, ls=":")
-ax.text(dt.date(2027,7,3), 780000, "Berichtsstand\nStatusbericht 06/2027", fontsize=7.5, color=GREY, ha="left")
+ax.axvline(dt.date(2026,6,30), color="#aaaaaa", lw=1, ls=":")
+ax.text(dt.date(2026,7,3), 780000, "Berichtsstand\nStatusbericht 06/2026", fontsize=7.5, color=GREY, ha="left")
 
 ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %y"))
 ax.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
@@ -179,7 +181,7 @@ ax.spines[["top","right"]].set_visible(False)
 ax.yaxis.set_major_formatter(lambda v, pos: f"{v/1000:,.0f}k")
 fig.autofmt_xdate()
 fig.tight_layout()
-fig.savefig("/tmp/repo/assets/diagrams/kostenkurve.png", dpi=200)
+fig.savefig(os.path.join(OUT_DIR, "kostenkurve.png"), dpi=200)
 plt.close(fig)
 print("chart 3 done")
 
@@ -188,13 +190,13 @@ print("chart 3 done")
 # ---------------------------------------------------------------
 # Roles and their loading windows (derived from terminplan.csv phases + FTE table in 05_Budget_und_Ressourcen.md)
 resources = [
-    ("Projektleitung",                  [(dt.date(2026,10,1), dt.date(2027,9,30), 0.35)]),
-    ("Fachprojektleitung Primärtechnik",[(dt.date(2026,10,16), dt.date(2027,9,20), 0.30)]),
-    ("Schutz-/Leittechnik",             [(dt.date(2026,11,1), dt.date(2027,9,20), 0.15)]),
-    ("Einkauf",                         [(dt.date(2026,12,1), dt.date(2027,2,28), 0.10)]),
-    ("Betrieb",                         [(dt.date(2027,8,1), dt.date(2027,9,20), 0.10)]),
-    ("Arbeitssicherheit/Umwelt",        [(dt.date(2027,8,1), dt.date(2027,9,20), 0.08)]),
-    ("Montage-/Inbetriebnahmeteam (AN)",[(dt.date(2027,9,1), dt.date(2027,9,10), 1.00)]),  # bottleneck: capped to 10-day shutdown window
+    ("Projektleitung",                  [(dt.date(2025,10,1), dt.date(2026,9,30), 0.35)]),
+    ("Fachprojektleitung Primärtechnik",[(dt.date(2025,10,16), dt.date(2026,9,20), 0.30)]),
+    ("Schutz-/Leittechnik",             [(dt.date(2025,11,1), dt.date(2026,9,20), 0.15)]),
+    ("Einkauf",                         [(dt.date(2025,12,1), dt.date(2026,2,28), 0.10)]),
+    ("Betrieb",                         [(dt.date(2026,8,1), dt.date(2026,9,20), 0.10)]),
+    ("Arbeitssicherheit/Umwelt",        [(dt.date(2026,8,1), dt.date(2026,9,20), 0.08)]),
+    ("Montage-/Inbetriebnahmeteam (AN)",[(dt.date(2026,9,1), dt.date(2026,9,10), 1.00)]),  # bottleneck: capped to 10-day shutdown window
 ]
 
 fig, ax = plt.subplots(figsize=(10, 4.8))
@@ -216,8 +218,8 @@ for i, (name, bars) in enumerate(resources):
             ax.text(start + dt.timedelta(days=width_days/2), i, label, ha="center", va="center",
                     fontsize=7.5, color="white", fontweight="bold" if is_bottleneck else "normal")
 
-ax.axvspan(dt.date(2027,9,1), dt.date(2027,9,10), color=RED, alpha=0.08, zorder=0)
-ax.text(dt.date(2027,4,1), -1.15, "Abschaltfenster (10 Tage) – einzige Engpassressource des Projekts: Montageteam auf 100% Auslastung begrenzt",
+ax.axvspan(dt.date(2026,9,1), dt.date(2026,9,10), color=RED, alpha=0.08, zorder=0)
+ax.text(dt.date(2026,4,1), -1.15, "Abschaltfenster (10 Tage) – einzige Engpassressource des Projekts: Montageteam auf 100% Auslastung begrenzt",
         fontsize=8.5, color=RED, fontweight="bold", ha="center", va="center")
 ax.set_yticks(range(len(resources)))
 ax.set_yticklabels(y_labels, fontsize=9)
@@ -228,6 +230,6 @@ ax.set_title("Ressourcen-Gantt mit Engpassressource (Montageteam im Abschaltfens
 ax.spines[["top","right","left"]].set_visible(False)
 fig.autofmt_xdate()
 fig.tight_layout()
-fig.savefig("/tmp/repo/assets/diagrams/ressourcen_gantt.png", dpi=200)
+fig.savefig(os.path.join(OUT_DIR, "ressourcen_gantt.png"), dpi=200)
 plt.close(fig)
 print("chart 4 done")
