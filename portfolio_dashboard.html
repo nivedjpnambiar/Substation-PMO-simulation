@@ -197,7 +197,7 @@
 
     <section id="ressourcen" class="panel">
       <h1>Ressourcenkonflikte</h1>
-      <p class="lede">Kapazitätsbedarf vs. Verfügbarkeit je Rolle, Oktober 2026.</p>
+      <p class="lede">Kapazitätsbedarf vs. Verfügbarkeit je Rolle, Oktober 2025.</p>
       <div class="card">
         <div class="sub">FTE = Vollzeitäquivalent (Full-Time Equivalent): 1,0 FTE entspricht einer vollzeitbeschäftigten Person. „Konflikt" heißt: Bedarf übersteigt die verfügbare Kapazität.</div>
         <table id="resourceTable"></table>
@@ -223,18 +223,18 @@
 
 <script>
 const projects = [
-  {id:'P1', name:'380-kV-Leistungsschalterfeld UW Mitte', kategorie:'Anlagenerneuerung', nutzen:4, risiko:4, dringlichkeit:4, budget:1450000, ist:733500, fortschritt:64, status:'gruen', start:'2026-10-01', end:'2027-09-30'},
-  {id:'P2', name:'Einheitliches PM-Reporting für interne Projekte', kategorie:'Governance & PME', nutzen:5, risiko:2, dringlichkeit:5, budget:180000, ist:40000, fortschritt:20, status:'gruen', start:'2026-06-01', end:'2027-01-31'},
-  {id:'P3', name:'Standardisierung Inbetriebnahme-Checklisten', kategorie:'Qualität & Prozess', nutzen:3, risiko:2, dringlichkeit:3, budget:95000, ist:60000, fortschritt:55, status:'gelb', start:'2026-05-01', end:'2026-11-30'},
-  {id:'P4', name:'Digitalisierung Ersatzteillager-Verwaltung', kategorie:'Digitalisierung', nutzen:4, risiko:3, dringlichkeit:3, budget:310000, ist:55000, fortschritt:15, status:'gruen', start:'2026-08-01', end:'2027-04-30'},
-  {id:'P5', name:'Automatisierung Angebotsprüfung Instandhaltung', kategorie:'Automatisierung', nutzen:3, risiko:3, dringlichkeit:2, budget:120000, ist:95000, fortschritt:70, status:'rot', start:'2026-04-01', end:'2026-10-31'},
+  {id:'P1', name:'380-kV-Leistungsschalterfeld UW Mitte', kategorie:'Anlagenerneuerung', nutzen:4, risiko:4, dringlichkeit:4, budget:1450000, ist:733500, fortschritt:64, status:'gruen', start:'2025-10-01', end:'2026-09-30'},
+  {id:'P2', name:'Einheitliches PM-Reporting für interne Projekte', kategorie:'Governance & PME', nutzen:5, risiko:2, dringlichkeit:5, budget:180000, ist:40000, fortschritt:20, status:'gruen', start:'2025-06-01', end:'2026-01-31'},
+  {id:'P3', name:'Standardisierung Inbetriebnahme-Checklisten', kategorie:'Qualität & Prozess', nutzen:3, risiko:2, dringlichkeit:3, budget:95000, ist:60000, fortschritt:55, status:'gelb', start:'2025-05-01', end:'2025-11-30'},
+  {id:'P4', name:'Digitalisierung Ersatzteillager-Verwaltung', kategorie:'Digitalisierung', nutzen:4, risiko:3, dringlichkeit:3, budget:310000, ist:55000, fortschritt:15, status:'gruen', start:'2025-08-01', end:'2026-04-30'},
+  {id:'P5', name:'Automatisierung Angebotsprüfung Instandhaltung', kategorie:'Automatisierung', nutzen:3, risiko:3, dringlichkeit:2, budget:120000, ist:95000, fortschritt:70, status:'rot', start:'2025-04-01', end:'2025-10-31'},
 ];
 
 const resources = [
-  {rolle:'Fachprojektleitung Technik', monat:'Okt 2026', bedarf:2.3, verfuegbar:2.0, projekte:'P1, P3, P5'},
-  {rolle:'Bauleitung / Montage', monat:'Okt 2026', bedarf:1.4, verfuegbar:1.5, projekte:'P1'},
-  {rolle:'Einkauf & Vergabe', monat:'Okt 2026', bedarf:1.6, verfuegbar:1.0, projekte:'P1, P4'},
-  {rolle:'IT / Digitalisierung', monat:'Okt 2026', bedarf:1.8, verfuegbar:2.0, projekte:'P2, P4, P5'},
+  {rolle:'Fachprojektleitung Technik', monat:'Okt 2025', bedarf:2.3, verfuegbar:2.0, projekte:'P1, P3, P5'},
+  {rolle:'Bauleitung / Montage', monat:'Okt 2025', bedarf:1.4, verfuegbar:1.5, projekte:'P1'},
+  {rolle:'Einkauf & Vergabe', monat:'Okt 2025', bedarf:1.6, verfuegbar:1.0, projekte:'P1, P4'},
+  {rolle:'IT / Digitalisierung', monat:'Okt 2025', bedarf:1.8, verfuegbar:2.0, projekte:'P2, P4, P5'},
 ];
 
 const risks = [
@@ -361,7 +361,7 @@ function renderGantt(){
   const pct = d => (new Date(d)-minDate)/span;
   const colors = {gruen:'#3F8F5F', gelb:'#B5822B', rot:'#B5453B'};
 
-  const quarters = ['2026-04-01','2026-07-01','2026-10-01','2027-01-01','2027-04-01','2027-07-01'];
+  const quarters = ['2025-04-01','2025-07-01','2025-10-01','2026-01-01','2026-04-01','2026-07-01'];
   const qLabels = ['Q2 26','Q3 26','Q4 26','Q1 27','Q2 27','Q3 27'];
   const lineBottom = H - 16;
 
@@ -375,7 +375,7 @@ function renderGantt(){
     html += `<div class="gantt-axis-label" style="left:${left+4}px; top:4px;">${qLabels[i]}</div>`;
   });
 
-  const today = '2026-09-13';
+  const today = '2025-09-13';
   const todayLeft = labelW + pct(today)*chartW;
   html += `<div class="gantt-today-line" style="left:${todayLeft}px; top:${headerH}px; height:${lineBottom-headerH}px;"></div>`;
   html += `<div class="gantt-axis-label" style="left:${todayLeft+4}px; top:${lineBottom+2}px; color:var(--brand-deep); font-weight:600;">Heute</div>`;
@@ -437,7 +437,7 @@ const decisions = [
     entscheidung:'ausstehend'
   },
   {
-    title:'Ressourcenkonflikt Fachprojektleitung Technik, Okt 2026',
+    title:'Ressourcenkonflikt Fachprojektleitung Technik, Okt 2025',
     meta:'Betrifft: P1, P3, P5 · Kapazitätslücke: 0,3 FTE',
     options:['P3 um 4 Wochen verschieben', 'Externe Unterstützung beauftragen (+25.000 €)', 'Scope von P5 reduzieren'],
     empfehlung:'Option 1 — P3 hat im Portfolio die geringste Dringlichkeit und keine Abhängigkeiten.',

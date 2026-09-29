@@ -1,0 +1,14 @@
+﻿ID;Arbeitspaket;Start;Ende;Fortschritt_Prozent;Status;Verantwortlich;Kritischer_Pfad
+T-01;Projektauftrag;2025-10-01;2025-10-15;100;Abgeschlossen;Projektleitung;Ja
+T-02;Bestandsaufnahme;2025-10-16;2025-11-15;100;Abgeschlossen;Fachprojektleitung;Ja
+T-03;Lastenheft;2025-11-01;2025-11-30;100;Abgeschlossen;Fachprojektleitung;Ja
+T-04;Ausschreibung;2025-12-01;2026-01-15;100;Abgeschlossen;Einkauf;Ja
+T-05;Angebotsbewertung;2026-01-16;2026-02-14;100;Abgeschlossen;Projektleitung;Ja
+T-06;Vergabe;2026-02-15;2026-02-28;100;Abgeschlossen;Einkauf;Ja
+T-07;Detailengineering;2026-03-01;2026-04-30;100;Abgeschlossen;Auftragnehmer;Ja
+T-08;Fertigung;2026-05-01;2026-06-25;92;In Arbeit;Auftragnehmer;Ja
+T-09;Factory Acceptance Test;2026-06-26;2026-06-30;25;Gefährdet;Fachprojektleitung;Ja
+T-10;Lieferung und Baustellenvorbereitung;2026-07-01;2026-08-31;15;Geplant;Projektleitung;Ja
+T-11;Montage;2026-09-01;2026-09-10;0;Geplant;Auftragnehmer;Ja
+T-12;Prüfung und Inbetriebnahme;2026-09-11;2026-09-20;0;Geplant;Fachprojektleitung;Ja
+T-13;Projektabschluss;2026-09-21;2026-09-30;0;Geplant;Projektleitung;Nein

@@ -41,8 +41,8 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 |---|---|
 | Anlage | Fiktives 380-kV-Umspannwerk „UW Mitte“ |
 | Projektumfang | Austausch eines Leistungsschalters inklusive Antrieb, Sekundärschnittstellen und Dokumentation |
-| Projektbeginn | 01.10.2026 |
-| Geplante Inbetriebnahme | 30.09.2027 |
+| Projektbeginn | 01.10.2025 |
+| Geplante Inbetriebnahme | 30.09.2026 |
 | Budgetrahmen | 1.450.000 EUR |
 | Auftraggeber | Fiktiver Übertragungsnetzbetreiber |
 | Ausführung | Externer Generalunternehmer mit mehreren Fachgewerken |
