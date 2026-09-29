@@ -245,7 +245,8 @@ const risks = [
   {id:'R-04', projekt:'P1', beschreibung:'Verdeckte Fundamentschäden', wert:12, owner:'Bautechnik'},
   {id:'R-05', projekt:'P1', beschreibung:'Unvollständige Abschlussdokumentation', wert:12, owner:'Projektleitung'},
   {id:'R-07', projekt:'P1', beschreibung:'Kran oder Transportmittel nicht verfügbar', wert:8, owner:'Auftragnehmer'},
-  {id:'R-09', projekt:'P2', beschreibung:'Geringe Akzeptanz des neuen Reporting-Tools bei Projektleitern', wert:12, owner:'PMO'},
+  {id:'R-09', projekt:'P1', beschreibung:'Kapazitätsengpass Montageteam im Abschaltfenster', wert:12, owner:'Auftragnehmer'},
+  {id:'R-12', projekt:'P2', beschreibung:'Geringe Akzeptanz des neuen Reporting-Tools bei Projektleitern', wert:12, owner:'PMO'},
   {id:'R-11', projekt:'P5', beschreibung:'Verzögerte Freigaben durch Einkauf verlangsamen Rollout', wert:10, owner:'Einkauf'},
   {id:'R-10', projekt:'P4', beschreibung:'Datenqualität im bestehenden Lagerbestand unzureichend', wert:9, owner:'IT/Digitalisierung'},
 ];
@@ -253,9 +254,10 @@ const risks = [
 const changes = [
   {id:'CR-001', projekt:'P1', status:'geschlossen'},
   {id:'CR-002', projekt:'P1', status:'offen'},
-  {id:'CR-003', projekt:'P5', status:'geschlossen'},
+  {id:'CR-003', projekt:'P1', status:'geschlossen'},
   {id:'CR-004', projekt:'P4', status:'offen'},
   {id:'CR-005', projekt:'P3', status:'offen'},
+  {id:'CR-006', projekt:'P5', status:'geschlossen'},
 ];
 
 function eur(n){ return n.toLocaleString('de-DE') + ' €'; }

@@ -37,7 +37,7 @@ Diese Datei ordnet jedem Kapitel des PM-Reports (Leitfaden Z01D, Vorlage `PM-Rep
 | Interner Aufwand gesamt | ca. 217 PT (Projektleitung 91,4 PT) |
 | Aufwand Montageteam im Abschaltfenster | 67 PT von 80 PT Kapazität (84 %) |
 | AP 6.3 „Neugerät montieren“ | 27,3 PT (PERT), 38.667 EUR Plan, Stichtag 04.09.2026: 57 % fertig, Prognose 28,5 PT / 39.600 EUR |
-| Risikosumme vorher / nachher | 102 / 53 (−48 %) |
+| Risikosumme vorher / nachher | 102 / 53 (−48 %) für die 7 vertieften Risiken; alle 9 Risiken im Register: 122 / 65 |
 | Business Case | Barwertvorteil Neugerät gegenüber Weiterbetrieb ca. 1,44 Mio. EUR (20 Jahre, 4 %) |
 | Puffer bis zur Frist | 14 Arbeitstage (M7 10.09.2026, Frist 30.09.2026) |
 
@@ -80,3 +80,5 @@ Für Kapitel 15 des Reports gilt nur Doc 25 (Stichtag während der Durchführung
 | Dashboard-Skript: fester Datenstand 30.09.2026, Ampel bewertet nur Überschreitungen | Reproduzierbare Ausgabe; Unterschreitung ist kein Warnsignal |
 | Doc 12: Zahl offener Changes auf 1 korrigiert | Nur CR-002 war im Juni offen |
 | `make_charts.py` schreibt relativ zum Skriptordner und erzeugt alle Grafiken | Vorher fest verdrahteter Pfad |
+| v4: Doc 06 um R-07 und R-08 ergänzt (6.9), Doc 09 um Bewertungsergebnis ergänzt (9.4), Doc 04 um Voraussetzung für den Puffer ergänzt | Register und Dokumente waren nicht deckungsgleich; Vergabeergebnis fehlte |
+| v4: Doc 12: FAT-Fristen auf Werktag gelegt, Zahl offener hoher Risiken auf 3 korrigiert; Portfolio-Dashboard: doppelte IDs R-09 und CR-003 aufgelöst | Widersprüche zu Register und Change-Log |

@@ -84,6 +84,7 @@ Das Lastenheft (T-03) beginnt zwölf Arbeitstage nach dem Start der Bestandsaufn
 
 - **Kritischer Pfad:** T-01 bis T-12 (siehe 4.2). Alle Vorgänge folgen einander ohne Überlappung. Jede Verzögerung wirkt direkt auf M7.
 - **Gesamtpuffer:** Die Frist für die Wiederinbetriebnahme ist der 30.09.2026 (Ziel 5). M7 liegt am 10.09.2026. Der Puffer beträgt **14 Arbeitstage** (11.–30.09.2026).
+- **Voraussetzung für den Puffer:** Das Abschaltfenster endet am 10.09.2026 und ist extern gesetzt. Die 14 Arbeitstage danach lassen sich nur nutzen, wenn der Betrieb eine Verlängerung der Abschaltung zustimmt. Diese Verlängerungsoption wird im Schaltantrag mit dem Betrieb vereinbart (siehe R-03 und 15.2). Ohne Zustimmung entsteht bei einem Verzug im Fenster ein neuer Abschalttermin.
 - **Eskalationsregel:** Bei mehr als 5 Arbeitstagen Prognoseverzug wird an den Lenkungskreis eskaliert (4.3). Damit bleibt vor dem Ende des Puffers Zeit zum Gegensteuern.
 - **Toleranz aus den Erfolgskennzahlen:** Abweichung zum Inbetriebnahmetermin ≤ 10 Arbeitstage (1.5), das ergibt spätestens den 24.09.2026 und liegt innerhalb der Frist.
 - **T-13 Projektabschluss:** Nicht kritisch, weil das formale Projektende (M8) keine Vertragsfrist ist. Verschiebt sich M7, verschiebt sich M8 entsprechend.

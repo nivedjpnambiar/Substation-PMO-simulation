@@ -84,3 +84,14 @@ Chancenwert = Eintrittswahrscheinlichkeit (W) × Nutzen (N), jeweils 1 bis 5. Di
 | C-01 | Standardisierung der Prüf- und Abnahmeunterlagen | Prüfplan und Checklisten werden früh mit dem Auftragnehmer abgestimmt | 4 | 3 | 12 | Prüfplan im Design Review festlegen, Vorlagen versionieren, Erfahrungen an Projekt P3 zurückgeben | 5 | 3 | 15 | Fachprojektleitung |
 | C-02 | Wiederverwendbare Spezifikation verkürzt künftige Ausschreibungen | Lastenheft und Bewertungsmatrix sind modular aufgebaut | 3 | 4 | 12 | Lastenheft modular gliedern, Bewertungsmatrix als Vorlage ablegen, Optionspositionen für Folgeaufträge vereinbaren | 4 | 4 | 16 | Einkauf |
 | C-03 | Bessere digitale Bestandsdokumentation senkt künftige Planungs- und Wartungszeiten | Aufmaßdaten und Herstellerdokumentation liegen digital vor | 3 | 3 | 9 | Aufmaßdaten als digitale Anlagenakte fordern, digitale Herstellerdokumentation vertraglich festlegen, Zustandsmeldung nutzen (CR-001) | 4 | 3 | 12 | Projektleitung |
+
+## 6.9 Übrige Risiken im Register
+
+Das vollständige Register (`data/risikoregister.csv`) enthält neun Risiken. Die Abschnitte 6.3 bis 6.7 vertiefen die sieben Risiken mit dem größten Einfluss auf Termin und Sicherheit. Die beiden übrigen Risiken werden im Register geführt und wie folgt bewertet:
+
+| ID | Risiko | W | A | Ausgangswert | Maßnahme | W' | A' | Restwert | Begründung für die Einordnung |
+|---|---|---:|---:|---:|---|---:|---:|---:|---|
+| R-07 | Kran oder Transportmittel nicht verfügbar | 2 | 4 | 8 | Frühe Reservierung, Ersatzanbieter (siehe 23.2, S2 und S3) | 1 | 4 | 4 | Niedrige Wahrscheinlichkeit, Ersatzanbieter verfügbar |
+| R-08 | FAT zeigt kritische Funktionsabweichung | 3 | 4 | 12 | Vorabtest, Prüflistenreview, alternativer FAT-Termin | 2 | 4 | 8 | Wirkung ist über den Pufferplan von R-01 (Lieferverzug) abgedeckt |
+
+Die Summe über alle neun Risiken sinkt von 122 auf 65 (−57). Die Kennzahl 102 auf 53 in 6.6 bezieht sich nur auf die sieben vertieften Risiken.

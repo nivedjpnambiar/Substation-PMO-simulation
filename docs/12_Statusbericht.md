@@ -24,13 +24,13 @@ Das Projekt liegt grundsätzlich im genehmigten Rahmen. Der Factory Acceptance T
 |---|---:|---:|
 | Gesamtbudget | 1.450.000 EUR | Prognose 1.438.000 EUR |
 | Terminfortschritt | 68 % | 66 % |
-| Offene hohe Risiken | 2 | 2 |
+| Offene hohe Risiken | 3 | 3 |
 | Offene Changes | 1 | 1 |
 | Überfällige Dokumente | 0 | 2 |
 
 ## 12.4 Entscheidungen erforderlich
 
-1. Bestätigung des alternativen FAT-Termins, falls die Dokumente nicht bis 20.06.2026 vorliegen.
+1. Bestätigung des alternativen FAT-Termins, falls die Dokumente nicht bis 19.06.2026 vorliegen.
 2. Freigabe des Change Requests CR-002 über 18.500 EUR.
 3. Bestätigung des finalen Abschaltfensters durch den Betrieb.
 
