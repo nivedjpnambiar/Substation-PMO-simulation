@@ -42,11 +42,13 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 | Anlage | Fiktives 380-kV-Umspannwerk „UW Mitte“ |
 | Projektumfang | Austausch eines Leistungsschalters inklusive Antrieb, Sekundärschnittstellen und Dokumentation |
 | Projektbeginn | 01.10.2025 |
-| Geplante Inbetriebnahme | 30.09.2026 |
+| Status | Fiktives Projekt, abgeschlossen (Projektzeitraum 10/2025 bis 09/2026) |
+| Eigene Rolle | Projektleiter (Auftraggeberseite, ca. 0,35 FTE) |
+| Geplante Inbetriebnahme | 10.09.2026 (Frist: 30.09.2026) |
 | Budgetrahmen | 1.450.000 EUR |
 | Auftraggeber | Fiktiver Übertragungsnetzbetreiber |
 | Ausführung | Externer Generalunternehmer mit mehreren Fachgewerken |
-| Betriebsunterbrechung | Geplantes Abschaltfenster von 10 Tagen |
+| Betriebsunterbrechung | Geplantes Abschaltfenster von 10 Tagen (01.–10.09.2026) |
 
 ## Repository-Struktur
 
@@ -57,6 +59,7 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 ├── DASHBOARD_EXAMPLE.txt
 ├── portfolio_dashboard.html
 ├── docs/
+│   ├── 00_Uebersicht_und_Report_Zuordnung.md
 │   ├── 01_Projektauftrag.md
 │   ├── 02_Anforderungen_und_Lastenheft.md
 │   ├── 03_Projektstrukturplan.md
@@ -74,18 +77,33 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 │   ├── 15_Projektumfeld_und_Stakeholderportfolio.md
 │   ├── 16_Projektdesign_und_Ansatz.md
 │   ├── 17_Kommunikationsmodell.md
-│   └── 18_Kosten_und_Ressourcenkurven.md
+│   ├── 18_Kosten_und_Ressourcenkurven.md
+│   ├── 19_Strategie_und_Business_Case.md
+│   ├── 20_Governance_und_Organisationsform.md
+│   ├── 21_Projektorganisation_und_Kommunikationsmatrix.md
+│   ├── 22_Phasenplan_und_Aufwand.md
+│   ├── 23_Ressourcenplanung.md
+│   ├── 24_Aufwandsschaetzung_und_Kostenverlauf.md
+│   └── 25_Statusbericht_Arbeitspaket_6_3.md
 ├── assets/
 │   └── diagrams/
 │       ├── projektumfeld.png
 │       ├── stakeholder_portfolio.png
 │       ├── kostenkurve.png
 │       ├── ressourcen_gantt.png
+│       ├── organigramm.png
+│       ├── psp.png
+│       ├── gantt_vernetzt.png
+│       ├── kostenganglinie_projekt.png
+│       ├── kosten_ap63.png
+│       ├── engpass_montageteam.png
+│       ├── risikomatrix.png
 │       └── make_charts.py
 ├── data/
 │   ├── terminplan.csv
 │   ├── budgetplan.csv
 │   ├── risikoregister.csv
+│   ├── chancenregister.csv
 │   ├── raci_matrix_p1.xlsx
 │   ├── angebotsbewertung.csv
 │   ├── change_log.csv
@@ -103,6 +121,7 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 
 | # | Dokument | Inhalt |
 |---|---|---|
+| 00 | Übersicht und Report-Zuordnung | Zuordnung der Dokumente zu den Kapiteln des PM-Reports, Kennzahlen, Änderungsliste |
 | 01 | Projektauftrag | Ziele, Nicht-Ziele, Erfolgskennzahlen, Projektorganisation |
 | 02 | Anforderungen und Lastenheft | Muss-/Soll-Anforderungen, Liefer- und Leistungsumfang |
 | 03 | Projektstrukturplan | Arbeitspakete je Phase, Definition of Done |
@@ -121,6 +140,13 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 | 16 | Projektdesign und Ansatz | Erfolgskriterien-Priorisierung, Wahl des Vorgehensmodells, ausgearbeitetes Arbeitspaket |
 | 17 | Kommunikationsmodell | Anwendung des Vier-Seiten-Modells auf ein reales Abstimmungsgespräch |
 | 18 | Kosten- und Ressourcenkurven | Kosten-S-Kurve (Plan/Ist/Prognose), Ressourcen-Gantt mit Engpassressource |
+| 19 | Strategie und Business Case | Handlungsoptionen, Barwertvergleich, kritische Erfolgsfaktoren |
+| 20 | Governance und Organisationsform | Projektmerkmale, Projektart, ausgewogene Matrix, PMO und Portfolio, Gremien |
+| 21 | Projektorganisation und Kommunikationsmatrix | Eigene Rolle, Organigramm, Projektrollen, RACI, Kommunikationsmatrix |
+| 22 | Phasenplan und Aufwand | Phasen mit Terminen, Aufwand (PT) und Kosten |
+| 23 | Ressourcenplanung | Personal- und Sachressourcen, Engpass Montageteam |
+| 24 | Aufwandsschätzung und Kostenverlauf | PERT-Schätzung AP 6.3, Kostenganglinie und Kostensummenlinie |
+| 25 | Statusbericht Arbeitspaket 6.3 | Statusbericht zum Stichtag 04.09.2026 mit Restaufwand |
 
 ## Schnellstart
 
@@ -140,7 +166,7 @@ Die Diagramme unter `assets/diagrams/` (Projektumfeld, Stakeholder-Portfolio, Ko
 python assets/diagrams/make_charts.py
 ```
 
-Das Skript benötigt `matplotlib` (`pip install matplotlib`).
+Das Skript benötigt `matplotlib` und `numpy` (`pip install matplotlib numpy`) und erzeugt alle Grafiken. Die Zuordnung der Dokumente zu den Kapiteln des PM-Reports steht in [docs/00_Uebersicht_und_Report_Zuordnung.md](docs/00_Uebersicht_und_Report_Zuordnung.md).
 
 
 ## Lizenz
