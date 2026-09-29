@@ -7,7 +7,7 @@
 | A-001 | Der neue Leistungsschalter muss für die vorgesehene 380-kV-Anwendung geeignet sein. | Herstellerunterlagen und Typnachweise |
 | A-002 | Mechanische und elektrische Schnittstellen müssen zur bestehenden Anlage passen oder durch freigegebene Adapterlösungen hergestellt werden. | Schnittstellenprüfung |
 | A-003 | Alle notwendigen Hilfs- und Meldesignale müssen in die bestehende Schutz- und Leittechnik integriert werden. | Signal- und Funktionstest |
-| A-004 | Lieferung, Montage und Prüfungen müssen innerhalb des freigegebenen Abschaltfensters erfolgen. | Terminplan und Abnahmeprotokoll |
+| A-004 | Demontage, Montage, Prüfungen und Inbetriebnahme müssen innerhalb des freigegebenen Abschaltfensters (10 Kalendertage, 01.–10.09.2026) erfolgen; die Lieferung auf die Baustelle erfolgt vor Fensterbeginn (bis 31.08.2026). | Terminplan und Abnahmeprotokoll |
 | A-005 | Der Auftragnehmer muss vollständige Revisionsunterlagen liefern. | Dokumentenprüfung |
 | A-006 | Arbeiten dürfen nur nach freigegebenem Sicherheits- und Montagekonzept beginnen. | Freigabeprotokoll |
 | A-007 | Änderungen an technischen Schnittstellen sind vor Ausführung schriftlich freizugeben. | Change Log |

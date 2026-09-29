@@ -3,7 +3,7 @@
 ## Zweck
 
 Dieses Dokument erweitert das ursprüngliche Simulationsprojekt (Erneuerung 380-kV-Leistungsschalterfeld)
-um die Portfolioebene. Es zeigt, wie mehrere unabhängige interne LGT-Projekte anhand einheitlicher
+um die Portfolioebene. Es zeigt, wie mehrere unabhängige interne Projekte des Übertragungsnetzbetreibers (ÜNB) anhand einheitlicher
 Kriterien bewertet, priorisiert und in einem Portfolio "in Balance" gehalten werden können —
 entsprechend IPMA ICB4, Practice 14 (Projektselektion und Portfoliobalance).
 
@@ -11,7 +11,7 @@ entsprechend IPMA ICB4, Practice 14 (Projektselektion und Portfoliobalance).
 
 | Kriterium | Gewichtung | Beschreibung |
 |---|---|---|
-| Strategischer Nutzen | 40 % | Beitrag zu den PME-Zielen von LGT (Transparenz, Governance, Effizienz) |
+| Strategischer Nutzen | 40 % | Beitrag zu den Zielen des ÜNB (Versorgungssicherheit, Transparenz, Governance, Effizienz) |
 | Dringlichkeit | 30 % | Zeitliche oder regulatorische Zwänge |
 | Risiko (invers) | 30 % | Je geringer das Risiko, desto höher der Score |
 

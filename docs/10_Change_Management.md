@@ -34,4 +34,4 @@ Bei der Detailvermessung wird festgestellt, dass zwei Befestigungspunkte außerh
 - Terminwirkung: drei zusätzliche Arbeitstage vor dem Abschaltfenster
 - Risiko ohne Änderung: Montageverzug im kritischen Abschaltfenster
 - Empfehlung: Freigabe der Adapterkonstruktion und Vorfertigung
-- Entscheidung: genehmigt durch Auftraggeber
+- Entscheidung: genehmigt durch Auftraggeber am 20.07.2026 (Lenkungskreis; zum Berichtsstand 06/2026 und im Datenstand 13.07.2026 noch offen)
