@@ -156,15 +156,15 @@ plan_points = [
     (dt.date(2026,9,10), 1377500),     # M7 Inbetriebnahme - 95% cum.
     (dt.date(2026,9,30), 1450000),     # M8 Abschluss - 100% cum.
 ]
-ist_point = (dt.date(2026,6,30), 733500)   # Summe Ist_EUR aus budgetplan.csv, Berichtsstand Statusbericht 06/2026
-prognose_point = (dt.date(2026,9,30), 1438000)  # Summe Prognose_EUR aus budgetplan.csv
+ist_point = (dt.date(2026,6,30), 733500)   # Summe Ist_06_2026_EUR aus budgetplan.csv, Berichtsstand Statusbericht 06/2026
+prognose_point = (dt.date(2026,9,30), 1362000)  # Summe Ist_EUR aus budgetplan.csv, Endkosten bei Projektabschluss
 
 fig, ax = plt.subplots(figsize=(9.5, 5.5))
 px = [p[0] for p in plan_points]
 py = [p[1] for p in plan_points]
 ax.plot(px, py, color=BLUE, marker="o", lw=2, label="Plan (kumuliert, aus Zahlungsmeilensteinen)")
 ax.plot([dt.date(2025,10,1), ist_point[0]], [0, ist_point[1]], color=GREEN, lw=2, marker="o", label="Ist (kumuliert, Stand 06/2026)")
-ax.scatter([prognose_point[0]], [prognose_point[1]], color=ORANGE, s=70, zorder=5, label="Prognose Gesamtkosten (Projektende)")
+ax.scatter([prognose_point[0]], [prognose_point[1]], color=ORANGE, s=70, zorder=5, label="Endkosten (Projektabschluss, 1.362.000 EUR)")
 ax.axhline(1450000, color=RED, lw=1, ls="--", alpha=0.6)
 ax.text(dt.date(2026,1,20), 1470000, "Genehmigtes Budget: 1.450.000 EUR", color=RED, fontsize=8, ha="left")
 
@@ -175,7 +175,7 @@ ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %y"))
 ax.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
 ax.set_ylim(0, 1600000)
 ax.set_ylabel("Kumulierte Kosten (EUR)")
-ax.set_title("Kostenverlauf (S-Kurve): Plan, Ist und Prognose", fontsize=12, fontweight="bold")
+ax.set_title("Kostenverlauf (S-Kurve): Plan, Ist (06/2026) und Endkosten", fontsize=12, fontweight="bold")
 ax.legend(loc="lower right", fontsize=8.5, frameon=False)
 ax.spines[["top","right"]].set_visible(False)
 ax.yaxis.set_major_formatter(lambda v, pos: f"{v/1000:,.0f}k")
@@ -410,7 +410,7 @@ ax.set_ylim(0, 520)
 ax2 = ax.twinx()
 ax2.plot(xs, [s/1000 for s in summe], color=DARK, marker="o", lw=2.2, label="Kostensummenlinie (Plan, kumuliert)")
 ax2.scatter([8], [733.5], color=GREEN, s=80, zorder=6, label="Ist kumuliert (Stand 06/2026: 733.500 EUR)")
-ax2.scatter([11], [1438], color=ORANGE, s=80, zorder=6, label="Prognose Projektende (1.438.000 EUR)")
+ax2.scatter([11], [1362], color=ORANGE, s=80, zorder=6, label="Endkosten Projektabschluss (1.362.000 EUR)")
 ax2.axhline(1450, color=RED, lw=1, ls="--", alpha=0.6)
 ax2.text(0.0, 1468, "Genehmigtes Budget 1.450.000 EUR", color=RED, fontsize=8)
 ax2.set_ylim(0, 1650)

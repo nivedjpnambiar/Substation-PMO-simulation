@@ -1,5 +1,9 @@
 # 14 – Portfolio-Priorisierung
 
+## Berichtsstand
+
+Die Portfolio-Daten (`portfolio_uebersicht.csv`, `ressourcenkonflikte.csv`, `portfolio_dashboard.html`) stammen vom **13.07.2026** und dienen als Vorlage für das Steering Board am 20.07.2026. P1 befindet sich zu diesem Stand in der Ausführung (Fortschritt 71 %). Der Abschluss von P1 am 30.09.2026 ist in den Projektdaten dokumentiert (siehe 0.3).
+
 ## Zweck
 
 Dieses Dokument erweitert das ursprüngliche Simulationsprojekt (Erneuerung 380-kV-Leistungsschalterfeld)

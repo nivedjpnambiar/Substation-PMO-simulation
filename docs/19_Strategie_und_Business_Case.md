@@ -29,24 +29,26 @@
 | Instandhaltung Neugerät | 20.000 EUR p. a. |
 | Ausfallwahrscheinlichkeit Altgerät / Retrofit / Neugerät | 4,0 % / 2,0 % / 0,5 % p. a. |
 | Schadenshöhe je Ausfall (Eilreparatur, Netzengpassmanagement, Versorgungsunterbrechung) | 3.000.000 EUR |
-| Investition Option C | 1.438.000 EUR (Prognose Projektende, siehe 5) |
+| Investition Option C | 1.450.000 EUR (Zielbudget zum Zeitpunkt der Entscheidung, siehe 5.1) |
 
 **Ergebnis (Barwert der Kosten über 20 Jahre):**
 
 | Kostenart | A – Weiterbetrieb | B – Retrofit | C – Neugerät |
 |---|---:|---:|---:|
-| Investition | 0 EUR | 600.000 EUR | 1.438.000 EUR |
+| Investition | 0 EUR | 600.000 EUR | 1.450.000 EUR |
 | Instandhaltung | 1.730.769 EUR | – | 271.807 EUR |
 | Erwartete Ausfallkosten | 1.630.839 EUR | – | 203.855 EUR |
 | Betrieb Jahre 1–10 (Instandhaltung und Ausfallrisiko) | – | 973.307 EUR | – |
-| Ersatz in Jahr 10 (abgezinst) | – | 971.461 EUR | – |
+| Ersatz in Jahr 10 (abgezinst) | – | 979.568 EUR | – |
 | Betrieb Jahre 11–20 (Neugerät) | – | 191.780 EUR | – |
-| **Summe Barwert** | **3.361.608 EUR** | **2.736.549 EUR** | **1.913.661 EUR** |
+| **Summe Barwert** | **3.361.608 EUR** | **2.744.656 EUR** | **1.925.661 EUR** |
 
-- Vorteil Option C gegenüber A: **1.447.947 EUR** (Barwert der vermiedenen Kosten).
-- Vorteil Option C gegenüber B: **822.887 EUR**.
+- Vorteil Option C gegenüber A: **1.435.947 EUR** (Barwert der vermiedenen Kosten).
+- Vorteil Option C gegenüber B: **818.995 EUR**.
 - Statische Amortisation gegenüber A: jährliche Einsparung im ersten Jahr = 70.000 EUR (Instandhaltung) + 105.000 EUR (Ausfallrisiko) = 175.000 EUR. Damit ergibt sich 8,2 Jahre. Der Wert ist konservativ, weil die Instandhaltungskosten des Altgeräts weiter steigen.
 - Nicht monetärer Nutzen: bessere Ersatzteilverfügbarkeit, Zustandsüberwachung des Antriebs (siehe CR-001), digitale Dokumentation, geringere Sicherheitsrisiken bei Wartungsarbeiten.
+
+Die Rechnung nutzt bewusst das Zielbudget von 1.450.000 EUR, weil die Entscheidung vor Projektbeginn auf dieser Basis fiel. Die tatsächlichen Endkosten (1.362.000 EUR, siehe 5.5) verbessern das Ergebnis zusätzlich.
 
 **Entscheidung:** Option C wurde mit dem Projektauftrag (M1, 15.10.2025) durch den Auftraggeber freigegeben.
 

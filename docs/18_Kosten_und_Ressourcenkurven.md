@@ -2,7 +2,7 @@
 
 ## 18.1 Kostenkurve (kumuliert): Plan, Ist und Prognose
 
-Die kumulierte Plankurve wird aus den Zahlungsmeilensteinen (5.3) in Verbindung mit den Meilensteinterminen (4.1) abgeleitet; die Ist-Kurve und die Prognose stammen aus `data/budgetplan.csv` (Summe Ist_EUR bzw. Prognose_EUR), zum Berichtsstand des Statusberichts 06/2026 (12.).
+Die kumulierte Plankurve wird aus den Zahlungsmeilensteinen (5.3) in Verbindung mit den Meilensteinterminen (4.1) abgeleitet; die Ist-Kurve zum Berichtsstand 06/2026 stammt aus `data/budgetplan.csv` (Spalte `Ist_06_2026_EUR`, siehe Statusbericht 12), die Endkosten aus den Spalten `Ist_EUR` bzw. `Prognose_EUR` (Stand Projektabschluss).
 
 ![Kostenkurve](../assets/diagrams/kostenkurve.png)
 
@@ -13,9 +13,9 @@ Die kumulierte Plankurve wird aus den Zahlungsmeilensteinen (5.3) in Verbindung 
 | 30.06.2026 | M5 FAT (60 % kum.) | 870.000 EUR | Ist 733.500 EUR |
 | 31.08.2026 | M6 Lieferung (80 % kum.) | 1.160.000 EUR | – |
 | 10.09.2026 | M7 Inbetriebnahme (95 % kum.) | 1.377.500 EUR | – |
-| 30.09.2026 | M8 Abschluss (100 % kum.) | 1.450.000 EUR | Prognose 1.438.000 EUR |
+| 30.09.2026 | M8 Abschluss (100 % kum.) | 1.450.000 EUR | Endkosten 1.362.000 EUR |
 
-**Interpretation:** Zum Berichtsstand (Ende Juni 2026) liegen die tatsächlichen Kosten (733.500 EUR) unterhalb der Planlinie (870.000 EUR) – dies ist konsistent mit dem im Statusbericht (12.3) ausgewiesenen „Grün"-Status bei Kosten. Die Prognose zum Projektende (1.438.000 EUR) liegt 12.000 EUR bzw. 0,8 % unter dem genehmigten Budget und damit innerhalb der zulässigen Toleranz von 5 % (siehe Erfolgskennzahl 1.5).
+**Interpretation:** Zum Berichtsstand (Ende Juni 2026) liegen die tatsächlichen Kosten (733.500 EUR) unterhalb der Planlinie (870.000 EUR) – dies ist konsistent mit dem im Statusbericht (12.3) ausgewiesenen „Grün"-Status bei Kosten. Die Prognose lag im Juni bei 1.438.000 EUR. Die Endkosten zum Projektabschluss betragen 1.362.000 EUR und liegen 88.000 EUR bzw. 6,1 % unter dem genehmigten Budget (Aufschlüsselung in 5.5); die Toleranz von 5 % für Überschreitungen (siehe Erfolgskennzahl 1.5) ist eingehalten.
 
 ## 18.2 Ressourcen-Gantt und Engpassressource
 

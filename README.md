@@ -44,8 +44,8 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 | Projektbeginn | 01.10.2025 |
 | Status | Fiktives Projekt, abgeschlossen (Projektzeitraum 10/2025 bis 09/2026) |
 | Eigene Rolle | Projektleiter (Auftraggeberseite, ca. 0,35 FTE) |
-| Geplante Inbetriebnahme | 10.09.2026 (Frist: 30.09.2026) |
-| Budgetrahmen | 1.450.000 EUR |
+| Inbetriebnahme | 10.09.2026 (Frist: 30.09.2026), Projektabschluss 30.09.2026 |
+| Budgetrahmen | 1.450.000 EUR, Endkosten 1.362.000 EUR |
 | Auftraggeber | Fiktiver Übertragungsnetzbetreiber |
 | Ausführung | Externer Generalunternehmer mit mehreren Fachgewerken |
 | Betriebsunterbrechung | Geplantes Abschaltfenster von 10 Tagen (01.–10.09.2026) |
@@ -139,7 +139,7 @@ Das Projekt demonstriert die strukturierte Anwendung grundlegender Methoden des 
 | 15 | Projektumfeld und Stakeholderportfolio | Umfelddiagramm, Schnittstellen, Einfluss-/Interesse-Portfolio, Machtpromotoren |
 | 16 | Projektdesign und Ansatz | Erfolgskriterien-Priorisierung, Wahl des Vorgehensmodells, ausgearbeitetes Arbeitspaket |
 | 17 | Kommunikationsmodell | Anwendung des Vier-Seiten-Modells auf ein reales Abstimmungsgespräch |
-| 18 | Kosten- und Ressourcenkurven | Kosten-S-Kurve (Plan/Ist/Prognose), Ressourcen-Gantt mit Engpassressource |
+| 18 | Kosten- und Ressourcenkurven | Kosten-S-Kurve (Plan, Ist 06/2026, Endkosten), Ressourcen-Gantt mit Engpassressource |
 | 19 | Strategie und Business Case | Handlungsoptionen, Barwertvergleich, kritische Erfolgsfaktoren |
 | 20 | Governance und Organisationsform | Projektmerkmale, Projektart, ausgewogene Matrix, PMO und Portfolio, Gremien |
 | 21 | Projektorganisation und Kommunikationsmatrix | Eigene Rolle, Organigramm, Projektrollen, RACI, Kommunikationsmatrix |
@@ -158,7 +158,7 @@ Alternativ kann die [Beispielausgabe des Dashboards](DASHBOARD_EXAMPLE.txt) dire
 python src/project_dashboard.py
 ```
 
-Das Skript wertet Budget, Termine, Risiken und Änderungen aus den CSV-Dateien aus.
+Das Skript wertet Budget, Termine, Risiken und Änderungen aus den CSV-Dateien aus. Der Datenstand ist der Projektabschluss (30.09.2026, Konstante `DATENSTAND` im Skript). Weitere Berichtsstände (Statusbericht 06/2026, Portfolio-Bericht 13.07.2026, AP-Status 04.09.2026) sind in [docs/00_Uebersicht_und_Report_Zuordnung.md](docs/00_Uebersicht_und_Report_Zuordnung.md) unter 0.3 erklärt.
 
 Die Diagramme unter `assets/diagrams/` (Projektumfeld, Stakeholder-Portfolio, Kostenkurve, Ressourcen-Gantt) lassen sich bei Bedarf neu erzeugen:
 

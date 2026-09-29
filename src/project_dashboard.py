@@ -23,6 +23,10 @@ from typing import Iterable
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 
+# Datenstand der CSV-Dateien: Projektabschluss (Meilenstein M8).
+# Für den laufenden Betrieb stattdessen date.today() verwenden.
+DATENSTAND = date(2026, 9, 30)
+
 
 def read_csv(filename: str) -> list[dict[str, str]]:
     path = DATA / filename
@@ -50,6 +54,7 @@ def budget_summary() -> None:
     forecast = sum(float(r["Prognose_EUR"]) for r in rows)
     variance = forecast - plan
     variance_pct = variance / plan * 100 if plan else 0.0
+    overrun_pct = max(variance_pct, 0.0)  # nur Überschreitungen werden bewertet
 
     heading("BUDGETSTATUS")
     print(f"Plan:        {eur(plan)}")
@@ -58,9 +63,9 @@ def budget_summary() -> None:
     print(f"Prognose:    {eur(forecast)}")
     print(f"Abweichung:  {eur(variance)} ({variance_pct:+.2f} %)")
 
-    if abs(variance_pct) <= 2:
+    if overrun_pct <= 2:
         status = "GRÜN"
-    elif abs(variance_pct) <= 5:
+    elif overrun_pct <= 5:
         status = "GELB"
     else:
         status = "ROT"
@@ -90,6 +95,8 @@ def risk_summary() -> None:
     top = sorted(open_risks, key=lambda r: int(r["Risikowert"]), reverse=True)[:5]
 
     heading("TOP-RISIKEN")
+    if not top:
+        print(f"Keine offenen Risiken (alle {len(rows)} Risiken geschlossen).")
     for r in top:
         print(
             f"{r['ID']:5} | Wert {int(r['Risikowert']):2} | "
@@ -139,7 +146,7 @@ def bid_evaluation() -> None:
 
 def main() -> None:
     print("PROJEKT-DASHBOARD: 380-kV-LEISTUNGSSCHALTERFELD")
-    print(f"Datenstand: {date.today().isoformat()}")
+    print(f"Datenstand: {DATENSTAND.isoformat()}")
     try:
         budget_summary()
         schedule_summary()

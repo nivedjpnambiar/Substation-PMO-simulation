@@ -31,24 +31,37 @@ Diese Datei ordnet jedem Kapitel des PM-Reports (Leitfaden Z01D, Vorlage `PM-Rep
 | Projekt | Erneuerung 380-kV-Leistungsschalterfeld, UW Mitte (fiktiv, abgeschlossen) |
 | Laufzeit | 01.10.2025 – 30.09.2026 (365 Kalendertage, 261 Arbeitstage) |
 | Abschaltfenster | 01.–10.09.2026 (10 Kalendertage) |
-| Budget / Prognose | 1.450.000 EUR / 1.438.000 EUR (−0,8 %) |
-| Reserve | 120.000 EUR |
-| Ist-Kosten zum Berichtsstand 06/2026 | 733.500 EUR (Plan 870.000 EUR) |
+| Budget / Endkosten | 1.450.000 EUR / 1.362.000 EUR (−6,1 %, Stand Projektabschluss 30.09.2026) |
+| Reserve | 120.000 EUR geplant, 37.000 EUR verbraucht (siehe 5.5) |
+| Ist-Kosten zum Berichtsstand 06/2026 | 733.500 EUR (Plan 870.000 EUR); Prognose damals 1.438.000 EUR |
 | Interner Aufwand gesamt | ca. 217 PT (Projektleitung 91,4 PT) |
 | Aufwand Montageteam im Abschaltfenster | 67 PT von 80 PT Kapazität (84 %) |
 | AP 6.3 „Neugerät montieren“ | 27,3 PT (PERT), 38.667 EUR Plan, Stichtag 04.09.2026: 57 % fertig, Prognose 28,5 PT / 39.600 EUR |
 | Risikosumme vorher / nachher | 102 / 53 (−48 %) |
-| Business Case | Barwertvorteil Neugerät gegenüber Weiterbetrieb ca. 1,45 Mio. EUR (20 Jahre, 4 %) |
+| Business Case | Barwertvorteil Neugerät gegenüber Weiterbetrieb ca. 1,44 Mio. EUR (20 Jahre, 4 %) |
 | Puffer bis zur Frist | 14 Arbeitstage (M7 10.09.2026, Frist 30.09.2026) |
 
-## 0.3 Hinweise zum Schreiben
+## 0.3 Datenstände im Repository
+
+Das Projekt ist abgeschlossen. Die Unterlagen enthalten deshalb bewusst mehrere Stände, die zeitlich zusammenpassen:
+
+| Stand | Datum | Wo | Inhalt |
+|---|---|---|---|
+| Projektabschluss | 30.09.2026 | `data/terminplan.csv`, `budgetplan.csv`, `risikoregister.csv`, `chancenregister.csv`, `change_log.csv`, `DASHBOARD_EXAMPLE.txt`, Doc 05 (5.5), 13 (13.0) | Alle Arbeitspakete abgeschlossen, Endkosten 1.362.000 EUR, alle Risiken geschlossen, alle Changes entschieden |
+| Statusbericht Juni | 06/2026 | Doc 12, Spalte `Ist_06_2026_EUR` in `budgetplan.csv`, Kostenkurve (18.1) | Fertigung läuft, FAT steht bevor, Ist 733.500 EUR |
+| Portfolio-Bericht | 13.07.2026 | `portfolio_uebersicht.csv`, `ressourcenkonflikte.csv`, `portfolio_dashboard.html`, Doc 14 | PMO-Sicht vor dem Steering Board am 20.07.2026 (dort wird CR-002 genehmigt) |
+| AP-Statusbericht | 04.09.2026 | Doc 25 | Ausführung im Abschaltfenster, AP 6.3 zu 57 % fertig |
+
+Für Kapitel 15 des Reports gilt nur Doc 25 (Stichtag während der Durchführung). Die anderen Stände dienen als Kontext.
+
+## 0.4 Hinweise zum Schreiben
 
 - Alle Zahlen sind **fiktive Planungsannahmen**. Im Report sollte das in Kapitel 1 klar stehen (siehe 1.10).
 - Der Report soll aus einem Guss sein: dasselbe Arbeitspaket AP 6.3 zieht sich durch Kapitel 11, 13, 14 und 15.
 - Die neuen Grafiken müssen in Overleaf in den Ordner `abbildungen/` hochgeladen werden. Dort liegen bisher nur die vier ursprünglichen Grafiken.
 - Für Kapitel 9 sind vier Rollen gefordert. Empfehlung: Auftraggeber, Projektleitung, Fachprojektleitung Primärtechnik, Betrieb (siehe 21.3).
 
-## 0.4 Änderungen dieser Überarbeitung (Konsistenz)
+## 0.5 Änderungen dieser Überarbeitung (Konsistenz)
 
 | Änderung | Grund |
 |---|---|
@@ -62,4 +75,8 @@ Diese Datei ordnet jedem Kapitel des PM-Reports (Leitfaden Z01D, Vorlage `PM-Rep
 | Doc 14, Portfolio-CSV und Dashboard von unternehmensfremden Begriffen bereinigt; Portfolio-Daten auf Datenstand 13.07.2026 gesetzt | Einheitliche Geschichte des fiktiven ÜNB |
 | Risikoregister um Ursachen, Korrekturmaßnahmen, Restwerte und Risiko R-09 erweitert; Chancenregister neu | Kapitel 7 |
 | Ressourcen-Gantt um Dokumentation/Qualität ergänzt, Einsatzzeiträume angepasst | Konsistenz zu 5.4 und den neuen Terminen |
+| Projektdaten (Termin, Budget, Risiken, Chancen, Changes) auf den Stand Projektabschluss 30.09.2026 gesetzt | Zuvor Zwischenstand 13.07.2026 mit überfälligen Vorgängen (T-08, T-09) im abgeschlossenen Projekt |
+| Endkosten 1.362.000 EUR (Reserve 37.000 EUR verbraucht), Business Case mit Zielbudget 1.450.000 EUR neu gerechnet | Ex-ante-Entscheidung auf Basis des Zielbudgets; Endkosten in Doc 05 (5.5) |
+| Dashboard-Skript: fester Datenstand 30.09.2026, Ampel bewertet nur Überschreitungen | Reproduzierbare Ausgabe; Unterschreitung ist kein Warnsignal |
+| Doc 12: Zahl offener Changes auf 1 korrigiert | Nur CR-002 war im Juni offen |
 | `make_charts.py` schreibt relativ zum Skriptordner und erzeugt alle Grafiken | Vorher fest verdrahteter Pfad |

@@ -76,5 +76,5 @@ Beide Kurven verwenden dasselbe Monatsraster. Die Kosten folgen dem Zahlungsplan
 | Sep 2026 | 290.000 | 1.450.000 | M7 Inbetriebnahme 15 % (217.500) und M8 Dokumentation 5 % (72.500) |
 
 - Zum Berichtsstand Juni 2026 betragen die Ist-Kosten 733.500 EUR und liegen unter dem Plan von 870.000 EUR (siehe 12 und 18).
-- Die Prognose zum Projektende beträgt 1.438.000 EUR, 12.000 EUR unter dem Budget von 1.450.000 EUR.
+- Die Prognose zum Berichtsstand Juni betrug 1.438.000 EUR. Die Endkosten zum Projektabschluss liegen bei 1.362.000 EUR, 88.000 EUR unter dem Budget von 1.450.000 EUR (siehe 5.5 und 18.1).
 - Die Meilenstein-Darstellung mit linearer Interpolation steht in 18.1.

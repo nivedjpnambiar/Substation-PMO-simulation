@@ -1,6 +1,6 @@
 # 12. Beispielhafter Projektstatusbericht
 
-**Berichtsmonat:** Juni 2026  
+**Berichtsmonat:** Juni 2026 (historischer Berichtsstand während der Fertigung; die Endkosten stehen in 5.5)  
 **Gesamtstatus:** GELB
 
 ## 12.1 Management Summary
@@ -25,7 +25,7 @@ Das Projekt liegt grundsätzlich im genehmigten Rahmen. Der Factory Acceptance T
 | Gesamtbudget | 1.450.000 EUR | Prognose 1.438.000 EUR |
 | Terminfortschritt | 68 % | 66 % |
 | Offene hohe Risiken | 2 | 2 |
-| Offene Changes | 2 | 2 |
+| Offene Changes | 1 | 1 |
 | Überfällige Dokumente | 0 | 2 |
 
 ## 12.4 Entscheidungen erforderlich
@@ -41,4 +41,4 @@ Das Projekt liegt grundsätzlich im genehmigten Rahmen. Der Factory Acceptance T
 | Dokumentenplan aktualisieren | Auftragnehmer | 16.06.2026 | In Arbeit |
 | FAT-Readiness-Review durchführen | FPL | 22.06.2026 | Offen |
 | CR-002 entscheiden | Auftraggeber | 18.06.2026 | Offen |
-| Abschaltfenster bestätigen | Betrieb | 30.06.2026 | Offen |
+| Schaltantrag für das Abschaltfenster einreichen (Fenster selbst ist bestätigt, siehe 15.2) | Betrieb | 30.06.2026 | Offen |

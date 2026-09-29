@@ -85,7 +85,7 @@ Der bestehende Leistungsschalter hat das Ende seiner vorgesehenen Nutzungsdauer 
 | Auftragnehmer | Externer Generalunternehmer mit mehreren Fachgewerken |
 | Laufzeit | 01.10.2025 bis 30.09.2026 |
 | Abschaltfenster | 01.–10.09.2026 (10 Kalendertage) |
-| Budget | 1.450.000 EUR inklusive Reserve von 120.000 EUR; Prognose 1.438.000 EUR |
+| Budget | 1.450.000 EUR inklusive Reserve von 120.000 EUR; Endkosten 1.362.000 EUR (Stand Projektabschluss, siehe 5.5) |
 | Umfang | Leistungsschalter, Antrieb, Anschlusskomponenten, Hilfsspannung, Sekundärschnittstellen, Dokumentation |
 | Meilensteine | M1 15.10.2025, M2 28.11.2025, M3 27.02.2026, M4 30.04.2026, M5 30.06.2026, M6 31.08.2026, M7 10.09.2026, M8 30.09.2026 |
 | Vorgehen | Klassisch, plangetrieben, mit Quality Gates (FAT, SAT, Abnahme) |

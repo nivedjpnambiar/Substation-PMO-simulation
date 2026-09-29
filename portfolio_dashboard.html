@@ -161,7 +161,7 @@
   <main>
     <section id="uebersicht" class="panel active">
       <h1>Portfolio-Übersicht</h1>
-      <p class="lede">Status aller internen Projekte.</p>
+      <p class="lede">Status aller internen Projekte. Portfolio-Berichtsstand: 13.07.2026 (Vorbereitung Steering Board 20.07.2026). P1 befindet sich zu diesem Stand in der Ausführung; der Abschluss von P1 (30.09.2026) ist in <code>data/</code> und <code>docs/</code> dokumentiert.</p>
       <div class="stat-row" id="statRow"></div>
       <div class="card">
         <h2>Budget nach Kategorie</h2>
@@ -223,7 +223,7 @@
 
 <script>
 const projects = [
-  {id:'P1', name:'380-kV-Leistungsschalterfeld UW Mitte', kategorie:'Anlagenerneuerung', nutzen:4, risiko:4, dringlichkeit:4, budget:1450000, ist:733500, fortschritt:64, status:'gruen', start:'2025-10-01', end:'2026-09-30'},
+  {id:'P1', name:'380-kV-Leistungsschalterfeld UW Mitte', kategorie:'Anlagenerneuerung', nutzen:4, risiko:4, dringlichkeit:4, budget:1450000, ist:733500, fortschritt:71, status:'gruen', start:'2025-10-01', end:'2026-09-30'},
   {id:'P2', name:'Einheitliches PM-Reporting für interne Projekte', kategorie:'Governance & PM-Standards', nutzen:5, risiko:2, dringlichkeit:5, budget:180000, ist:40000, fortschritt:20, status:'gruen', start:'2026-06-01', end:'2027-01-31'},
   {id:'P3', name:'Standardisierung Inbetriebnahme-Checklisten', kategorie:'Qualität & Prozess', nutzen:3, risiko:2, dringlichkeit:3, budget:95000, ist:60000, fortschritt:55, status:'gelb', start:'2026-05-01', end:'2026-11-30'},
   {id:'P4', name:'Digitalisierung Ersatzteillager-Verwaltung', kategorie:'Digitalisierung', nutzen:4, risiko:3, dringlichkeit:3, budget:310000, ist:55000, fortschritt:15, status:'gruen', start:'2026-06-01', end:'2027-04-30'},
@@ -244,7 +244,6 @@ const risks = [
   {id:'R-06', projekt:'P1', beschreibung:'Sicherheitsverstoß auf Baustelle', wert:15, owner:'Arbeitssicherheit'},
   {id:'R-04', projekt:'P1', beschreibung:'Verdeckte Fundamentschäden', wert:12, owner:'Bautechnik'},
   {id:'R-05', projekt:'P1', beschreibung:'Unvollständige Abschlussdokumentation', wert:12, owner:'Projektleitung'},
-  {id:'R-08', projekt:'P1', beschreibung:'FAT zeigt kritische Funktionsabweichung', wert:12, owner:'Fachprojektleitung'},
   {id:'R-07', projekt:'P1', beschreibung:'Kran oder Transportmittel nicht verfügbar', wert:8, owner:'Auftragnehmer'},
   {id:'R-09', projekt:'P2', beschreibung:'Geringe Akzeptanz des neuen Reporting-Tools bei Projektleitern', wert:12, owner:'PMO'},
   {id:'R-11', projekt:'P5', beschreibung:'Verzögerte Freigaben durch Einkauf verlangsamen Rollout', wert:10, owner:'Einkauf'},
@@ -378,7 +377,7 @@ function renderGantt(){
   const today = '2026-07-13';
   const todayLeft = labelW + pct(today)*chartW;
   html += `<div class="gantt-today-line" style="left:${todayLeft}px; top:${headerH}px; height:${lineBottom-headerH}px;"></div>`;
-  html += `<div class="gantt-axis-label" style="left:${todayLeft+4}px; top:${lineBottom+2}px; color:var(--brand-deep); font-weight:600;">Heute</div>`;
+  html += `<div class="gantt-axis-label" style="left:${todayLeft+4}px; top:${lineBottom+2}px; color:var(--brand-deep); font-weight:600;">Stand 13.07.</div>`;
 
   projects.forEach((p,i)=>{
     const top = headerH + i*rowH;

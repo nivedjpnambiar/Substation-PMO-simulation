@@ -145,4 +145,4 @@ Berechnung: Aufwand = FTE × Arbeitstage im Einsatzzeitraum der Rolle innerhalb 
 
 - Interne Personalkosten sind nicht im Zielbudget von 1.450.000 EUR enthalten. Sie werden als Aufwand in PT ausgewiesen.
 - Die Phasenkosten folgen dem Zahlungsplan (5.3): 10 % bei Bestellung (M3), 20 % bei Freigabe Engineering (M4), 30 % bei FAT (M5), 20 % bei Lieferung (M6), 15 % bei Inbetriebnahme (M7), 5 % bei vollständiger Dokumentation (M8). Der Plan umfasst die Reserve von 120.000 EUR.
-- Prognose Gesamtkosten: 1.438.000 EUR (siehe 12 und 18).
+- Endkosten zum Projektabschluss: 1.362.000 EUR (siehe 5.5). Zum Berichtsstand 06/2026 lag die Prognose bei 1.438.000 EUR (siehe 12 und 18).

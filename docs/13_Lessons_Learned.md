@@ -1,5 +1,15 @@
 # 13. Lessons Learned
 
+## 13.0 Projektergebnis (Stand 30.09.2026)
+
+| Kriterium | Plan | Ergebnis |
+|---|---|---|
+| Inbetriebnahme (M7) | 10.09.2026 | 10.09.2026, im Abschaltfenster (01.–10.09.2026) |
+| Projektabschluss (M8) | 30.09.2026 | 30.09.2026 |
+| Kosten | 1.450.000 EUR | 1.362.000 EUR (−6,1 %), Reserve zu 37.000 EUR verbraucht (siehe 5.5) |
+| Changes | – | CR-001 (+6.500 EUR), CR-002 (+18.500 EUR), CR-003 (−2.000 EUR): alle genehmigt, netto +23.000 EUR |
+| Risiken | 9 Risiken im Register | alle geschlossen (`data/risikoregister.csv`) |
+
 ## 13.1 Was gut funktioniert hat
 
 - Anforderungen wurden vor der Ausschreibung strukturiert und prüfbar formuliert.
